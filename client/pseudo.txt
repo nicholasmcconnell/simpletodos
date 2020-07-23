@@ -1,0 +1,9 @@
+Todo
+    1. Add Todo
+        - on click show form
+            -has button to go back - history thing
+            - add todo
+    2. View Todo's
+        - on click show todos - axios call
+    3. Delete Todo's
+        - button on rendered todo's

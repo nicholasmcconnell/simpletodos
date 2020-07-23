@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+/* @custom-media --viewport-4 (min-width: 480px);
+@custom-media --viewport-7 (min-width: 768px);
+@custom-media --viewport-9 (min-width: 992px);
+@custom-media --viewport-12 (min-width: 1200px); */
+
+
+/* REST STUFF */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  color: #12b5f5;
+  text-decoration: unset;
+}
+
+ul {
+  margin-left: 1.5rem;
+  list-style: none;
+}
+
+button,
+input[type='submit'] {
+  border: none;
+  background: none;
+  color: unset;
+  cursor: pointer;
+}
+
+h1, h2, h3, h4, h5, h6, ul, ol, p {
+  margin: 1em 0;
+}
+
+/* GENERAL */
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.page {
+  padding: 1rem;
+}
+
+.container{
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* HEADER */
+
+#header {
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #cc8f8f;
+}
+ #header .title {
+   margin: 0;
+   padding: 0 1rem;
+   color: #ffffff;
+ }
+
+ #header .auth-options{
+   height: 100%;
+   display: flex;
+ }
+
+ #header .auth-options button {
+  background-color: #792929;
+  padding: 0 1rem;
+  color: #ffffff;
+  font-size: 1.1rem;
+
+}
+
+#header .auth-options button:hover {
+  background-color: #bd5151;
+}
+
+/* FORM */
+
+.form label,
+.form input {
+  display: block;
+}
+.form input {
+  margin-bottom: 1rem;
+}
+.form label{
+  margin-bottom: .2rem;
+}
+
+.form input[type='text'],
+.form input[type='email'],
+.form input[type='password'] {
+  width: 100%;
+  padding: .3rem;
+  border: 1px solid #d3d3d3;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+  font-size: 1.1rem;
+}
+.form input:focus {
+  border: 1px solid #50a4e9;
+  box-shadow: inset 0px 0px 5px #a1caec;
+  outline: none;
+}
+.form input[type='submit'] {
+  padding: .3rem .5rem;
+  border: 1px solid #499560;
+  border-radius: 5px;
+  background-color: #cfe9ce;
+  font-size: 1.1rem;
+}
+
+/* ERROR NOTICE */
+
+.error-notice {
+  margin: 1rem 0;
+  padding: .5rem;
+  border: 1px solid #e07c7c;
+  border-radius: 5px;
+  background-color: #f8d6d6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.error-notice button {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #bd5151;
+  color: #ffffff;
+}
+
+
+
+
+/* MEDIA QUERIES */
+
+@media (max-width: 480px) {
+  #header .title {
+    font-size: 6vw;
+  }
+
+  #header .auth-options button{
+    font-size: 4vw;
+  }
+
+}
