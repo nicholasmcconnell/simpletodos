@@ -8,8 +8,8 @@ router.use('/api', apiRoutes);
 //No routes hit call react app
 // UNCOMMENT WHEN TIED WITH FRONT END
 router.use(function(req, res){
-    // res.sendFile(path.join(__dirname, "../client/build/index.html"))
-    res.send('in routes/index.js')
+    res.sendFile(path.join(__dirname, "../client/build/index.html"))
+    // res.send('in routes/index.js')
 })
 
 module.exports = router;
