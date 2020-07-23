@@ -20,10 +20,10 @@ export default function Register() {
         try {
             const newUser = { email, password, passwordCheck, displayName };
             await Axios.post(
-                'http://localhost:5000/api/users/register',
+                '/api/users/register',
                 newUser
             );
-            const loginRes = await Axios.post('http://localhost:5000/api/users/login', {
+            const loginRes = await Axios.post('/api/users/login', {
                 email,
                 password
             });
