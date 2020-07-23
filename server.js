@@ -22,7 +22,7 @@ app.use(routes);
 //ADD BACK IN ONCE TIED TO HEROKU DATABASE
 // process.env.MONGODB_URI ||
 mongoose.connect(
-    ("mongodb://localhost/mern-auth-fullstack" || process.env.MONGODB_CONNECTION_STRING), {
+    ("mongodb://localhost/todos" || process.env.MONGODB_CONNECTION_STRING), {
         useNewUrlParser: true,
         useUnifiedTopology: true,
         useCreateIndex: true,

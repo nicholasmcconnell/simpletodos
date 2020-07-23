@@ -7,3 +7,8 @@ Todo
         - on click show todos - axios call
     3. Delete Todo's
         - button on rendered todo's
+
+
+Fix - 
+    1. When logged in - refreshing page goes to login but doens't log out user
+        - set conditional that if token is valid go to home page on refresh
