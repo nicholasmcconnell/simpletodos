@@ -26,7 +26,7 @@ app.use(routes);
 // set up mongoose
 //ADD BACK IN ONCE TIED TO HEROKU DATABASE
 // process.env.MONGODB_URI ||
-// "mongodb://localhost/todos" ||
+// "mongodb://localhost/todos"
 mongoose.connect(
     (process.env.MONGODB_CONNECTION_STRING), {
         useNewUrlParser: true,
