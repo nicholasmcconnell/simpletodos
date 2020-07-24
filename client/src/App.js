@@ -21,6 +21,7 @@ function App() {
       if (token === null) {
         localStorage.setItem('auth-token', '');
         token = '';
+        return;
       }
 
       const tokenRes = await Axios.post(
