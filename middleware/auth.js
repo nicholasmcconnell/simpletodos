@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 
-const auth = (req, res, next) => {
+const auth = async (req, res, next) => {
     try {
 
         const token = req.header('x-auth-token');
@@ -11,7 +11,7 @@ const auth = (req, res, next) => {
                 .json({ msg: "No authentication token, authorization denied." })
         }
 
-        const verified = jwt.verify(token, process.env.JWT_SECRET);
+        const verified = await jwt.verify(token, process.env.JWT_SECRET);
 
         
         if(!verified){
