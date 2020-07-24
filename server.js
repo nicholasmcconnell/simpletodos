@@ -34,6 +34,7 @@ mongoose.connect(
         useCreateIndex: true,
     }, (err) => {
         if(err){
+            console.log(err);
             throw err;
         } else{ 
         (console.log("Connection to database established"));
