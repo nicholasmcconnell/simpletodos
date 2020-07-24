@@ -76,7 +76,7 @@ module.exports = {
             }
 
             const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
-            res.json({
+            await res.json({
                 token,
                 user: {
                     id: user._id,
@@ -117,7 +117,6 @@ module.exports = {
             const user = await User.findById(verified.id);
           
             if (!user){
-                ("in user if statement")
                 return res.json(false);
             }
 
