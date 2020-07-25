@@ -6,7 +6,7 @@ export default function Header() {
     return (
         <header id='header'>
             <Link to='/'>
-                <h1 className='title'>MERN auth app</h1>
+                <h1 className='title'>Simple Todo's!</h1>
             </Link>
 
             <AuthOptions />

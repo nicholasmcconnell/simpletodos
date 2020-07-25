@@ -7,7 +7,8 @@ function Home() {
     const history = useHistory();
 
     useEffect(() => {
-
+        console.log('in home.js useEffect')
+        console.log(userData.user)
         if(!userData.user){
             history.push('/login')
         }
