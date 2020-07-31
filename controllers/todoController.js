@@ -9,7 +9,7 @@ module.exports = {
 
             // validation
 
-            if (!title) {
+            if (!title || !description) {
                 return res.status(400).json({ msg: 'Not all fields have been entered.' })
             }
 

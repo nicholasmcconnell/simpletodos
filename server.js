@@ -27,8 +27,9 @@ app.use(routes);
 //ADD BACK IN ONCE TIED TO HEROKU DATABASE
 // process.env.MONGODB_URI ||
 //"mongodb://localhost/todos" || 
+//|| process.env.MONGODB_CONNECTION_STRING
 mongoose.connect(
-    (process.env.MONGODB_CONNECTION_STRING), {
+    ("mongodb://localhost/todos"), {
         useNewUrlParser: true,
         useUnifiedTopology: true,
         useCreateIndex: true,
