@@ -2,11 +2,8 @@ import React, { useEffect, useContext, useState } from 'react';
 import UserContext from '../../context/UserContext';
 import { useHistory } from 'react-router-dom';
 import ErrorNotice from '../misc/ErrorNotice';
-import CreateTodos from './CreateTodos';
-import GetTodos from './GetTodos';
-import SearchTodos from './SearchTodo';
 
-export default function TodoOptions() {
+export default function SearchTodos() {
     const [error, setError] = useState();
     const [todoSearch, setTodoSearch] = useState();
 
@@ -31,7 +28,21 @@ export default function TodoOptions() {
     return (
 
         <div className='page'>
-            <h2>Todo Options</h2>
+            <h2>Todos</h2>
+           
+            <form className='form' onSubmit={submit}>
+                <label htmlFor='search-term'>Search:</label>
+                <input
+                    id='todo-search'
+                    type='text'
+                    placeholder='Search your todos'
+                    onChange={e => setTodoSearch(e.target.value)}
+                />
+
+                <input type='submit' value='Search' />
+
+
+            </form>
         </div>
     )
 }

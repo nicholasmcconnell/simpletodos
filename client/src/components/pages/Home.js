@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from 'react';
 import UserContext from '../../context/UserContext';
 import { useHistory } from 'react-router-dom';
-import Todo from '../todo/TodoOptions';
+import TodoOptions from '../todo/TodoOptions';
 
 function Home() {
     const { userData } = useContext(UserContext);
@@ -29,7 +29,7 @@ function Home() {
     });
     return (
         <>
-            <Todo />
+            <TodoOptions />
         </>
     )
 }
