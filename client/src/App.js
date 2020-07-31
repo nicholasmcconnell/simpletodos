@@ -5,6 +5,7 @@ import Header from './components/layout/Header'
 import Home from './components/pages/Home.js';
 import Login from './components/auth/Login.js';
 import Register from './components/auth/Register.js';
+import Todo from './components/todo/TodoOptions';
 import UserContext from './context/UserContext';
 
 import './App.css';
@@ -52,6 +53,7 @@ function App() {
               <Route exact path='/' component={Home} />
               <Route path='/login' component={Login} />
               <Route path='/register' component={Register} />
+              <Route path='/todos' component={Todo} />
             </Switch>
           </div>
         </UserContext.Provider>
