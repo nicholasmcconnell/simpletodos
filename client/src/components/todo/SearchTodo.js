@@ -28,7 +28,7 @@ export default function SearchTodos() {
     return (
 
         <div className='page'>
-            <h2>Todos</h2>
+            <h2>Search Todos</h2>
            
             <form className='form' onSubmit={submit}>
                 <label htmlFor='search-term'>Search:</label>

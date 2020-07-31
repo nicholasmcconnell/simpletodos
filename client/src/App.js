@@ -56,7 +56,7 @@ function App() {
               <Route exact path='/' component={Home} />
               <Route path='/login' component={Login} />
               <Route path='/register' component={Register} />
-              <Route path='/createtodo' component={CreateTodos} />
+              <Route path='/createtodos' component={CreateTodos} />
               <Route path='/gettodos' component={GetTodos} />
               <Route path='/searchtodos' component={SearchTodos} />
             </Switch>
