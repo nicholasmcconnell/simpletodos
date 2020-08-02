@@ -12,7 +12,6 @@ const auth = async (req, res, next) => {
         }
 
         const verified = jwt.verify(token, process.env.JWT_SECRET);
-
         
         if(!verified){
             {
@@ -22,6 +21,7 @@ const auth = async (req, res, next) => {
             }
         }
         req.user = verified.id;
+        console.log('in auth.js', req.user)
         next();
 
     } catch (err) {

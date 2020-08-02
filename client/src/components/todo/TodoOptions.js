@@ -23,20 +23,19 @@ export default function TodoOptions() {
     // const gettodos = () => history.push('/gettodos');
     // const searchtodos = () => history.push('/searchtodos');
 
-    const submit = async (e) => {
-        try {
-            e.preventDefault();
+    // const submit = async (e) => {
+    //     try {
+    //         e.preventDefault();
 
-        } catch (err) {
-            err.response.data.msg && setError(err.response.data.msg);
-        }
+    //     } catch (err) {
+    //         err.response.data.msg && setError(err.response.data.msg);
+    //     }
 
-    }
+    // }
     return (
         <>
 
             <div className='page'>
-
                 <div className='container'>
                     <h2>Todo Options</h2>
                     <Link to='/gettodos'>
@@ -50,7 +49,6 @@ export default function TodoOptions() {
                         <button className='type-button' value='CreateTodos'>Create Todo</button>
                     </Link>
                 </div>
-
             </div>
         </>
     )
