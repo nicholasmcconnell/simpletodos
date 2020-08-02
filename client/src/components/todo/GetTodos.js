@@ -7,7 +7,7 @@ export default function GetTodos() {
         API.getTodos()
             .then(res =>
                 console.log(res.data)
-            ).catch(err => console.log(err))
+            ).catch(err => console.log('hi', err))
 
 
     }
