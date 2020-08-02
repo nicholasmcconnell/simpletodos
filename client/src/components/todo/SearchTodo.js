@@ -28,21 +28,24 @@ export default function SearchTodos() {
     return (
 
         <div className='page'>
-            <h2>Search Todos</h2>
-           
-            <form className='form' onSubmit={submit}>
-                <label htmlFor='search-term'>Search:</label>
-                <input
-                    id='todo-search'
-                    type='text'
-                    placeholder='Search your todos'
-                    onChange={e => setTodoSearch(e.target.value)}
-                />
+            <div className='container'>
 
-                <input type='submit' value='Search' />
+                <h2>Search Todos</h2>
+
+                <form className='form' onSubmit={submit}>
+                    <label htmlFor='search-term'>Search:</label>
+                    <input
+                        id='todo-search'
+                        type='text'
+                        placeholder='Search your todos'
+                        onChange={e => setTodoSearch(e.target.value)}
+                    />
+
+                    <input type='submit' value='Search' />
 
 
-            </form>
+                </form>
+            </div>
         </div>
     )
 }
