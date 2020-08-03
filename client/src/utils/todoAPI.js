@@ -12,8 +12,13 @@ export default {
             }
         })
     },
-    deleteTodos: function (id){
-        return axios.post('/api/todos/' + id)
+    deleteTodos: function (token, id){
+        console.log(id);
+        return axios.delete('/api/todos/' + id, {
+            headers: {
+                'x-auth-token': token
+            }
+        })
     }
 }
 

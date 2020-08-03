@@ -27,7 +27,8 @@ export default function GetTodos() {
 
     const deleteTodos = async (id) => {
         try {
-            await API.deleteTodos(id)
+            console.log('gettodo.js', id)
+            await API.deleteTodos(userData.token, id)
                 .then(
                     await API.getTodos(userData.token)
                         .then(res =>
@@ -38,7 +39,8 @@ export default function GetTodos() {
 
 
         } catch (err) {
-            (err.response.data.msg && setError(err.response.data.msg))
+            // (err.response.data.msg && setError(err.response.data.msg))
+            console.log(err);
         }
     }
 

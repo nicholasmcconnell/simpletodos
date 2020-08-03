@@ -44,7 +44,9 @@ module.exports = {
     },
 
     deleteTodo: async (req, res) => {
-        const todo = await Todo.findOne({userId: req.user, _id: req.params.id})
+        const todo = await Todo.findOne({userId: req.user, _id: req.params.id});
+        console.log('controller', todo);
+
 
         if(!todo){
             return res.status(400).json({ msg: 'No todo found with this ID associated with this User.' })

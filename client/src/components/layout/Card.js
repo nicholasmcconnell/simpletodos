@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default function Card(props) {
-    console.log(props.todoList.title)
+    console.log(props.todoList._id)
     return (
         <div className='card-body'>
             <h3 className='card-title'>{props.todoList.title}</h3>
@@ -9,7 +9,7 @@ export default function Card(props) {
             {/* <iframe className='card-youtube' width="420" height="315"
                 src="https://www.youtube.com/embed/tgbNymZ7vqY?controls=0">
             </iframe> */}
-            <button className='type-button' onClick={props.deleteTodos}>Delete</button>
+            <button className='delete-button' onClick={() => props.deleteTodos(props.todoList._id)}>Delete</button>
         </div>
     )
 }
