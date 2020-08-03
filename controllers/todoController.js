@@ -1,6 +1,8 @@
 const db = require('../models');
 const { Todo } = require('../models');
 
+console.log('in todoControler')
+
 module.exports = {
     createTodo: async (req, res) => {
         try {

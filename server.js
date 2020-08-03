@@ -19,7 +19,7 @@ if (process.env.NODE_ENV === "production") {
   }
 
 //set up routes
-
+console.log('at routes');
 app.use(routes);
 
 

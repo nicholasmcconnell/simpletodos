@@ -1,5 +1,7 @@
 const jwt = require('jsonwebtoken');
 
+console.log('in auth.js');
+
 const auth = async (req, res, next) => {
     try {
 
@@ -25,6 +27,7 @@ const auth = async (req, res, next) => {
         next();
 
     } catch (err) {
+        console.log('err in authjs', err)
         res.status(500).json({ error: err.message })
 
     }
