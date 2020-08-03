@@ -1,16 +1,19 @@
-// import { useContext } from 'react';
-// import axios from 'axios';
-// // import UserContext from '../../context/UserContext';
+import { useContext } from 'react';
+import axios from 'axios';
+// import UserContext from '../../context/UserContext';
 
-// // const { userData } = 
+// const { userData } = 
 
-// export default {
-//     getTodos: function (token) {
-//         return axios.get('api/todos/all', {
-//             headers: {
-//                 'x-auth-token': token
-//             }
-//         })
-//     }
-// }
+export default {
+    getTodos: function (token) {
+        return axios.get('api/todos/all', {
+            headers: {
+                'x-auth-token': token
+            }
+        })
+    },
+    deleteTodos: function (id){
+        return axios.post('/api/todos/' + id)
+    }
+}
 

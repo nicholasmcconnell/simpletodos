@@ -1,0 +1,15 @@
+import React from 'react'
+
+export default function Card(props) {
+    console.log(props.todoList.title)
+    return (
+        <div className='card-body'>
+            <h3 className='card-title'>{props.todoList.title}</h3>
+            <p className='card-description'>{props.todoList.description}</p>
+            {/* <iframe className='card-youtube' width="420" height="315"
+                src="https://www.youtube.com/embed/tgbNymZ7vqY?controls=0">
+            </iframe> */}
+            <button className='type-button' onClick={props.deleteTodos}>Delete</button>
+        </div>
+    )
+}

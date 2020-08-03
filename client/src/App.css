@@ -44,7 +44,6 @@ body {
   padding: .5rem;
   /* display: flex; */
   /* justify-content: space-evenly; */
-
 }
 
 .container {
@@ -139,6 +138,25 @@ body {
   border-radius: 5px;
   background-color: #cfe9ce;
   /* font-weight: 550; */
+}
+
+/* CARD */
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.card-body {
+  /* float: right; */
+  margin: 1rem;
+  padding: .5rem;
+  height: 200px;
+  width: 300px;
+  border: 2px solid black;
 }
 
 /* ERROR NOTICE */
