@@ -1,4 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react'
+import { useHistory } from 'react-router-dom';
 import API from '../../utils/todoAPI';
 import Axios from 'axios';
 import UserContext from '../../context/UserContext';
@@ -9,6 +10,14 @@ export default function GetTodos() {
     const { userData } = useContext(UserContext);
     const [todoList, setTodoList] = useState([]);
     const [error, setError] = useState();
+
+    const history = useHistory();
+
+    useEffect(() => {
+        if (!userData.user) {
+            history.push('/login')
+        }
+    });
 
     useEffect(() => {
         API.getTodos(userData.token)
