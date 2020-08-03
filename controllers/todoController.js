@@ -33,8 +33,12 @@ module.exports = {
     },
 
     getTodos: async (req, res) => {
-        // const todos = await Todo.find({ userId: req.user })
-        // res.json(todos);
+        const todo = await Todo.findOne({ userId: req.user });
+
+        if (!todo) {
+            console.log('!todo')
+            return res.status(400).json({ msg: 'No todos found associated with this User.' })
+        }
 
         db.Todo
             .find({ userId: req.user })
@@ -44,11 +48,11 @@ module.exports = {
     },
 
     deleteTodo: async (req, res) => {
-        const todo = await Todo.findOne({userId: req.user, _id: req.params.id});
+        const todo = await Todo.findOne({ userId: req.user, _id: req.params.id });
         console.log('controller', todo);
 
 
-        if(!todo){
+        if (!todo) {
             return res.status(400).json({ msg: 'No todo found with this ID associated with this User.' })
         }
 

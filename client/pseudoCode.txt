@@ -23,6 +23,7 @@ Fix -
 
 GetTodos
     1. edit button
+    2. Error Notice show when todo returns Null
 
 Create todos
     1. button to view todos - renders get todo component

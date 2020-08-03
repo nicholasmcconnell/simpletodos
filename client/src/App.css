@@ -182,7 +182,7 @@ body {
 .buttons-div {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  /* align-items: center; */
 }
 
 /* ERROR NOTICE */
