@@ -36,28 +36,30 @@ export default function Login() {
 
     return (
         <div className='page'>
-            <h2>Login</h2>
-            {error && (
-                <ErrorNotice message={error} clearError={() => setError(undefined)} />
-            )}
-            <form className='form' onSubmit={submit}>
-                <label htmlFor='login-email'>Email</label>
-                <input
-                    id='login-email'
-                    type='email'
-                    onChange={e => setEmail(e.target.value)}
-                />
+            <div className='container'>
+                <h2>Login</h2>
+                {error && (
+                    <ErrorNotice message={error} clearError={() => setError(undefined)} />
+                )}
+                <form className='form' onSubmit={submit}>
+                    <label htmlFor='login-email'>Email</label>
+                    <input
+                        id='login-email'
+                        type='email'
+                        onChange={e => setEmail(e.target.value)}
+                    />
 
-                <label htmlFor='login-password'>Password</label>
-                <input
-                    id='login-password'
-                    type='password'
-                    onChange={e => setPassword(e.target.value)}
-                />
+                    <label htmlFor='login-password'>Password</label>
+                    <input
+                        id='login-password'
+                        type='password'
+                        onChange={e => setPassword(e.target.value)}
+                    />
 
-                <input type='submit' value='Log in' />
+                    <input type='submit' value='Log in' />
 
-            </form>
+                </form>
+            </div>
         </div>
     )
 }

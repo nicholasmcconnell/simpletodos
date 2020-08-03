@@ -13,12 +13,24 @@ Use <Link /> insead of useHistory??
         // check user is logged in
 //then show page
 //make form
-//display todo's - should have delete button and edit button.
 
 
 Fix - 
     1. When logged in - refreshing page goes to login but doens't log out user
         - set conditional that if token is valid go to home page on refresh
         - ISSUE - the page is rendering before entering running useEffect which checks local stroage for userData
-    2. Check Todo error display
-    3. todo pages check for user - no user route to '/'.
+    2. Check Todo error display 
+
+GetTodos
+    1. edit button
+
+Create todos
+    1. button to view todos - renders get todo component
+    2. validation if description is empty send error
+    3. 
+
+Most Recent todo    
+    1. Component that gets just that.
+
+Navigatin buttons
+    1. back to menu...things like that.

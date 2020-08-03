@@ -8,7 +8,10 @@ export default function Card(props) {
             {/* <iframe className='card-youtube' width="420" height="315"
                 src="https://www.youtube.com/embed/tgbNymZ7vqY?controls=0">
             </iframe> */}
-            <button className='delete-button' onClick={() => props.deleteTodos(props.todoList._id)}>Delete</button>
+            <div className='buttons-div'>
+                <button className='delete-button'>Edit</button>
+                <button className='delete-button' onClick={() => props.deleteTodos(props.todoList._id)}>Delete</button>
+            </div>
         </div>
     )
 }
