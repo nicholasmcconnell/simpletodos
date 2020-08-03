@@ -22,7 +22,7 @@ ul {
   list-style: none;
 }
 
-button, input[type='submit'] {
+button, input[type='submit'], textarea {
   border: none;
   background: none;
   color: unset;
@@ -35,7 +35,7 @@ h1, h2, h3, h4, h5, h6, ul, ol, p {
 
 /* GENERAL */
 
-body {
+body, textarea {
   font-family: "Roboto", sans-serif;
 }
 
@@ -94,7 +94,7 @@ body {
   display: block;
 }
 
-.form input {
+.form input, .form textarea {
   margin-bottom: 1rem;
 }
 
@@ -102,7 +102,7 @@ body {
   margin-bottom: .2rem;
 }
 
-.form input[type='text'], .form input[type='email'], .form input[type='password'] {
+.form input[type='text'], .form input[type='email'], .form input[type='password'], .form input[type='url'], .form textarea {
   width: 100%;
   padding: .3rem;
   border: 1px solid #d3d3d3;
@@ -118,11 +118,15 @@ body {
 }
 
 .form input[type='submit'] {
-  padding: .3rem .5rem;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: .8rem;
+  padding: .5rem .5rem;
   border: 1px solid #499560;
   border-radius: 5px;
   background-color: #cfe9ce;
   font-size: 1.1rem;
+  justify-content: space-between;
 }
 
 .type-button {
