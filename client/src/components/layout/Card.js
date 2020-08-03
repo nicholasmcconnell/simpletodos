@@ -1,7 +1,6 @@
 import React from 'react'
 
 export default function Card(props) {
-    console.log(props.todoList._id)
     return (
         <div className='card-body'>
             <h3 className='card-title'>{props.todoList.title}</h3>

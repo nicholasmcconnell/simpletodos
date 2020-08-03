@@ -23,11 +23,9 @@ const auth = async (req, res, next) => {
             }
         }
         req.user = verified.id;
-        console.log('in auth.js', req.user)
         next();
 
     } catch (err) {
-        console.log('err in authjs', err)
         res.status(500).json({ error: err.message })
 
     }

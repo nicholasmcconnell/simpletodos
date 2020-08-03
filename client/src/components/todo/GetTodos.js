@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import API from '../../utils/todoAPI';
 import Axios from 'axios';
 import UserContext from '../../context/UserContext';
@@ -10,6 +10,14 @@ export default function GetTodos() {
     const [todoList, setTodoList] = useState([]);
     const [error, setError] = useState();
 
+    useEffect(() => {
+        API.getTodos(userData.token)
+            .then(res =>
+                setTodoList(res.data)
+            )
+            .catch(err => console.log(err))
+    }, [])
+
     const getTodos = async () => {
         try {
             await API.getTodos(userData.token)
@@ -17,9 +25,6 @@ export default function GetTodos() {
                     setTodoList(res.data)
                 )
                 .catch(err => console.log(err))
-
-            console.log(todoList);
-
         } catch (err) {
             (err.response.data.msg && setError(err.response.data.msg))
         }
@@ -27,23 +32,21 @@ export default function GetTodos() {
 
     const deleteTodos = async (id) => {
         try {
-            console.log('gettodo.js', id)
             await API.deleteTodos(userData.token, id)
-                .then(
-                    await API.getTodos(userData.token)
-                        .then(res =>
+                .then(() => {
+                    API.getTodos(userData.token)
+                        .then(res => {
                             setTodoList(res.data)
-                        )
+                        })
                         .catch(err => console.log(err))
-                )
-
+                })
+                .catch(err => console.log(err));
 
         } catch (err) {
-            // (err.response.data.msg && setError(err.response.data.msg))
+            (err.response.data.msg && setError(err.response.data.msg))
             console.log(err);
         }
     }
-
 
     return (
         <div className='page'>
