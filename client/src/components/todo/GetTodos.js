@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react'
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import API from '../../utils/todoAPI';
 import Axios from 'axios';
 import UserContext from '../../context/UserContext';
@@ -46,47 +46,50 @@ export default function GetTodos() {
     }
 
 
-const deleteTodos = async (id) => {
-    try {
-        await API.deleteTodos(userData.token, id)
-            .then(() => {
-                API.getTodos(userData.token)
-                    .then(res => {
-                        setTodoList(res.data)
-                    })
-                    .catch(err => console.log(err))
-            })
-            .catch(err =>
-                (err.response.data.msg && setError(err.response.data.msg))
-            )
-    } catch (err) {
-        console.log(err.response.data.msg)
+    const deleteTodos = async (id) => {
+        try {
+            await API.deleteTodos(userData.token, id)
+                .then(() => {
+                    API.getTodos(userData.token)
+                        .then(res => {
+                            setTodoList(res.data)
+                        })
+                        .catch(err => console.log(err))
+                })
+                .catch(err =>
+                    (err.response.data.msg && setError(err.response.data.msg))
+                )
+        } catch (err) {
+            console.log(err.response.data.msg)
 
-        console.log('hi', err);
+            console.log('hi', err);
+        }
     }
-}
 
-return (
-    <div className='page'>
-        <div className='container'>
-            <h2>Get Todo's</h2>
-            {error && (
-                <ErrorNotice message={error} clearError={() => setError(undefined)} />
-            )}
-            <button className='type-button' value='GetTodos' onClick={getTodos}>Fetch Todos</button>
+    return (
+        <div className='page'>
+            <div className='container'>
+                <h2>Get Todo's</h2>
+                {error && (
+                    <ErrorNotice message={error} clearError={() => setError(undefined)} />
+                )}
+                <button className='type-button' value='GetTodos' onClick={getTodos}>Fetch Todos</button>
 
 
-            <div className='card-container'>
-                {todoList.length ? todoList.map(todo =>
-                    <Card
-                        todoList={todo}
-                        key={todo._id}
-                        deleteTodos={deleteTodos}
-                    />
+                <div className='card-container'>
+                    {todoList.length ? todoList.map(todo =>
+                        <Card
+                            todoList={todo}
+                            key={todo._id}
+                            deleteTodos={deleteTodos}
+                        />
 
-                ) : <p></p>}
+                    ) : <p></p>}
+                </div>
+                <Link to='/'>
+                    <button className='type-button' value='Home'>Home</button>
+                </Link>
             </div>
         </div>
-    </div>
-)
+    )
 }
