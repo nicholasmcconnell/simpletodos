@@ -143,14 +143,18 @@ body {
 /* CARD */
 
 .card-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(5, 1fr);
   grid-column-gap: 0px;
-  grid-row-gap: 0px;
+  grid-row-gap: 0px; */
 }
 
 .card-body {
+  /* display: inline-block; */
   /* float: right; */
   margin: 1rem;
   padding: .5rem;

@@ -21,3 +21,4 @@ Fix -
         - set conditional that if token is valid go to home page on refresh
         - ISSUE - the page is rendering before entering running useEffect which checks local stroage for userData
     2. Check Todo error display
+    3. todo pages check for user - no user route to '/'.
