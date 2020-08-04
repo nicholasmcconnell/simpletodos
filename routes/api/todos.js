@@ -5,7 +5,7 @@ const auth = require('../../middleware/auth');
 console.log('in todo.js')
 
 router.route('/')
-    .post(auth, todoController.createTodo);
+    .post(auth, todoController.createTodos);
 
 router.route('/all')
     .get(auth, todoController.getTodos);

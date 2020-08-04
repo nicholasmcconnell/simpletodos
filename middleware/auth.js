@@ -4,7 +4,6 @@ console.log('in auth.js');
 
 const auth = async (req, res, next) => {
     try {
-
         const token = req.header('x-auth-token');
 
         if (!token) {

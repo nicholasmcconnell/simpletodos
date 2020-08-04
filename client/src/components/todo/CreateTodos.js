@@ -1,14 +1,15 @@
 import React, { useState, useContext, useEffect } from 'react'
 import { useHistory, Link } from 'react-router-dom';
 import UserContext from '../../context/UserContext';
-import Axios from 'axios';
+import API from '../../utils/todoAPI';
 import ErrorNotice from '../misc/ErrorNotice';
 
 export default function CreateTodos() {
 
-    const [title, setTitle] = useState('');
-    const [description, setDescription] = useState('');
-    const [youTubeUrl, setYouTubeUrl] = useState('');
+    const [title, setTitle] = useState();
+    const [youTubeUrl, setYouTubeUrl] = useState();
+    const [description, setDescription] = useState();
+    const [error, setError] = useState();
 
     const { userData } = useContext(UserContext);
     const history = useHistory();
@@ -22,18 +23,26 @@ export default function CreateTodos() {
     const submit = async (e) => {
         e.preventDefault();
         try {
+            const newTodo = { title, youTubeUrl, description }
 
-        } catch (error) {
+            await API.createTodos(newTodo, userData.token)
+                .then(res => console.log('success', res.data))
+                .catch(err =>
+                    (err.response.data.msg && setError(err.response.data.msg))
+                )
 
+        } catch (err) {
+            console.log(err)
         }
     }
-    // form - 1. title, 2. description, 3. youtube link,
-    // 
 
     return (
         <div className='page'>
             <div className='container'>
                 <h2>CreateTodos</h2>
+                {error && (
+                    <ErrorNotice message={error} clearError={() => setError(undefined)} />
+                    )}
                 <form className='form' onSubmit={submit}>
                     <label htmlFor='todo-title'>Title</label>
                     <input
@@ -56,8 +65,8 @@ export default function CreateTodos() {
                         onChange={e => setDescription(e.target.value)}
                     />
                     {/* <div className='buttons-div'> */}
-                        <input type='submit' value='Submit' />
-                        
+                    <input type='submit' value='Submit' />
+
                     {/* </div> */}
                 </form>
                 <Link to='/'>

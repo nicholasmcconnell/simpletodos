@@ -4,10 +4,10 @@ const { Todo } = require('../models');
 console.log('in todoControler')
 
 module.exports = {
-    createTodo: async (req, res) => {
+    createTodos: async (req, res) => {
         try {
-
-            const { title, description } = req.body;
+            console.log('req.body', req.body)
+            const { title, youTubeUrl, description } = req.body;
 
             // validation
 
@@ -17,6 +17,7 @@ module.exports = {
 
             const newTodo = new Todo({
                 title,
+                youTubeUrl,
                 description,
                 userId: req.user
             });
