@@ -29,7 +29,7 @@ app.use(routes);
 //"mongodb://localhost/todos" || 
 //|| process.env.MONGODB_CONNECTION_STRING
 mongoose.connect(
-    ("mongodb://localhost/todos"), {
+    (process.env.MONGODB_CONNECTION_STRING), {
         useNewUrlParser: true,
         useUnifiedTopology: true,
         useCreateIndex: true,

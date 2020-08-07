@@ -19,7 +19,7 @@ Fix -
     1. When logged in - refreshing page goes to login but doens't log out user
         - set conditional that if token is valid go to home page on refresh
         - ISSUE - the page is rendering before entering running useEffect which checks local stroage for userData
-    2. Check Todo error display 
+    2. COOKIE youtube problem
 
 GetTodos
     1. edit button
