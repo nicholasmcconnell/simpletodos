@@ -126,7 +126,7 @@ body, textarea {
   display: block;
   margin: 0 auto;
   margin-bottom: .8rem;
-  padding: .5rem .5rem;
+  padding: .5rem 1rem;
   border: 1px solid #408555;
   /* box-shadow: inset 0px 0px 5px #429de2; */
   border-radius: 5px;
