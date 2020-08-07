@@ -47,13 +47,14 @@ body, textarea {
 }
 
 .container {
+  border-radius: 4px;
   max-width: 800px;
   margin: auto;
   margin-top: .5rem;
   padding: 1rem;
   /* margin-right: 3%; */
   /* margin-left: 3%; */
-  background-color: #50a4e9;
+  background-color: #5ea8e6;
 }
 
 /* HEADER */
@@ -63,7 +64,7 @@ body, textarea {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #cc8f8f;
+  background-color: #c74939;
 }
 
 #header .title {
@@ -78,14 +79,18 @@ body, textarea {
 }
 
 #header .auth-options button {
-  background-color: #792929;
+ 
+  background-color: #b43c3c;
   padding: 0 1rem;
   color: #ffffff;
   font-size: 1.1rem;
 }
 
 #header .auth-options button:hover {
-  background-color: #bd5151;
+  background-color: #b94949;
+  box-shadow: inset 0px 0px 4px #6d6d6e;
+  /* border-radius: 5px; */
+
 }
 
 /* FORM */
@@ -113,7 +118,7 @@ body, textarea {
 
 .form input:focus {
   border: 1px solid #50a4e9;
-  box-shadow: inset 0px 0px 5px #a1caec;
+  box-shadow: inset 0px 0px 5px #96a0a8;
   outline: none;
 }
 
@@ -122,11 +127,22 @@ body, textarea {
   margin: 0 auto;
   margin-bottom: .8rem;
   padding: .5rem .5rem;
-  border: 1px solid #499560;
+  border: 1px solid #408555;
+  /* box-shadow: inset 0px 0px 5px #429de2; */
   border-radius: 5px;
   background-color: #cfe9ce;
   font-size: 1.1rem;
   justify-content: space-between;
+}
+.form input[type='submit']:hover {
+  background-color: #cfe9ce;
+  box-shadow: inset 0px 0px 7px #3c90cf;
+  outline: none;
+}
+.form input:hover {
+  /* background-color: #b7ebb7; */
+  box-shadow: inset 0px 0px 7px #96a0a8;
+  outline: none;
 }
 
 .type-button {
@@ -143,6 +159,14 @@ body, textarea {
   background-color: #cfe9ce;
   /* font-weight: 550; */
 }
+
+.type-button:hover {
+  background-color: #cfe9ce;
+  box-shadow: inset 0px 0px 6px #8a939b;
+  outline: none;
+}
+
+
 
 /* CARD */
 
@@ -168,19 +192,22 @@ body, textarea {
   justify-content: flex-end;
 }
 
-.delete-button {
+.todo-card-button {
   color: black;
   width: 100%;
   padding: .5rem;
-  /* border: 1px solid #d3d3d3; */
   margin: .2rem;
   border-radius: 5px;
   font-size: 1.2rem;
-  /* padding: .3rem .5rem; */
   border: 1px solid #499560;
   border-radius: 5px;
   background-color: #cfe9ce;
-  /* font-weight: 550; */
+}
+
+.todo-card-button:hover {
+  background-color: #cfe9ce;
+  box-shadow: inset 0px 0px 4px #96a0a8;
+  outline: none;
 }
 
 .buttons-div {

@@ -10,8 +10,8 @@ export default function Card(props) {
                 src={props.todoList.youTubeUrl}>
             </iframe>
             <div className='buttons-div'>
-                <button className='delete-button'>Edit</button>
-                <button className='delete-button' onClick={() => props.deleteTodos(props.todoList._id)}>Delete</button>
+                <button className='todo-card-button'>Edit</button>
+                <button className='todo-card-button' onClick={() => props.deleteTodos(props.todoList._id)}>Delete</button>
             </div>
         </div>
     )
