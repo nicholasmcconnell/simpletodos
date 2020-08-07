@@ -88,7 +88,7 @@ body, textarea {
 
 #header .auth-options button:hover {
   background-color: #b94949;
-  box-shadow: inset 0px 0px 4px #6d6d6e;
+  /* box-shadow: inset 0px 0px 4px #6d6d6e; */
   /* border-radius: 5px; */
 
 }

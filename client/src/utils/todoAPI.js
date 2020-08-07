@@ -6,7 +6,6 @@ import axios from 'axios';
 
 export default {
     getTodos: function (token) {
-        console.log(token);
         return axios.get('api/todos/all', {
             headers: {
                 'x-auth-token': token

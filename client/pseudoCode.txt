@@ -27,7 +27,7 @@ GetTodos
 
 Create todos
     1. button to view todos - renders get todo component
-    2. validation if description is empty send error
+    2. success validatino shows on screen and clears form
     3. 
 
 Most Recent todo    
