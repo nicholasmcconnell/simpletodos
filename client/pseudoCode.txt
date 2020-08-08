@@ -24,6 +24,7 @@ Fix -
 GetTodos
     1. edit button
     2. Error Notice show when todo returns Null
+    3. when deleted, set state and useEffect to refresh component. remove from screen
 
 Create todos
     1. button to view todos - renders get todo component
