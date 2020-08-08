@@ -20,6 +20,7 @@ export default function GetTodos() {
     });
 
     useEffect(() => {
+        console.log('useEffect get todos.')
         API.getTodos(userData.token)
             .then(res =>
                 setTodoList(res.data)
@@ -37,11 +38,11 @@ export default function GetTodos() {
                 )
                 .catch(err =>
                     // console.log(err.response.data.msg)
-                    (err.response.data.msg && setError(err.response.data.msg))
-                    // console.log('gettodos function', err)
+                    console.log('gettodos function', err)
+                        (err.response.data.msg && setError(err.response.data.msg))
                 )
         } catch (err) {
-            console.log(err)
+            console.log('gettodos.js catch', err)
         }
     }
 
@@ -52,15 +53,18 @@ export default function GetTodos() {
                 .then(() => {
                     API.getTodos(userData.token)
                         .then(res => {
+                            console.log(res.data);
                             setTodoList(res.data)
                         })
-                        .catch(err => console.log(err))
+                        .catch(err =>
+                            (err.response.data.msg && setError(err.response.data.msg))
+                        )
                 })
                 .catch(err =>
                     (err.response.data.msg && setError(err.response.data.msg))
                 )
         } catch (err) {
-            console.log(err.response.data.msg)
+            console.log(err)
 
             console.log('hi', err);
         }

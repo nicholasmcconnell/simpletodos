@@ -6,6 +6,8 @@ import axios from 'axios';
 
 export default {
     getTodos: function (token) {
+        console.log('gettodos api')
+
         return axios.get('api/todos/all', {
             headers: {
                 'x-auth-token': token
@@ -13,6 +15,7 @@ export default {
         })
     },
     deleteTodos: function (token, id){
+        console.log('delete api')
         return axios.delete('/api/todos/' + id, {
             headers: {
                 'x-auth-token': token

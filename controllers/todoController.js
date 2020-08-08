@@ -1,12 +1,9 @@
 const db = require('../models');
 const { Todo } = require('../models');
 
-console.log('in todoControler')
-
 module.exports = {
     createTodos: async (req, res) => {
         try {
-            console.log('req.body', req.body)
             const { title, youTubeUrl, description } = req.body;
 
             // validation
@@ -36,15 +33,33 @@ module.exports = {
     getTodos: async (req, res) => {
         const todo = await Todo.findOne({ userId: req.user });
 
+        console.log('todod in gettodos', todo);
+
         if (!todo) {
-            return res.status(400).json({ msg: 'No todos found associated with this User.' })
+            console.log('in !todo if')
+            db.Todo
+                .find({ userId: req.user })
+                .sort({ created_at: -1 })
+                .then(dbModel => res.json(dbModel))
+                .then(res.status(400).json({ msg: '2No todos found associated with this User.' }))
+                .catch(err => {
+                    console.log('todo err1', err)
+                    res.status(400).json({ msg: '1No todos found associated with this User.' })
+                    // res.status(422).json(err)
+                });
+        } else {
+
+            db.Todo
+                .find({ userId: req.user })
+                .sort({ created_at: -1 })
+                .then(dbModel => res.json(dbModel))
+                .catch(err => {
+                    console.log('todo err', err)
+                    // res.status(400).json({ msg: 'No todos found associated with this User.' })
+                    res.status(422).json(err)
+                });
         }
 
-        db.Todo
-            .find({ userId: req.user })
-            .sort({ created_at: -1 })
-            .then(dbModel => res.json(dbModel))
-            .catch(err => res.status(422).json(err));
     },
 
     deleteTodo: async (req, res) => {
