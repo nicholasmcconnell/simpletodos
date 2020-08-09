@@ -14,7 +14,6 @@ export default function Header() {
             {
                 userData.user ? <h1 className='title'>{userData.user.displayName}'s Todo's!</h1> : <h1 className='title'>Simple Todo's</h1>
             }
-                {/* <h1 className='title'>{{userData} ? `${userData.user.displayName}'s Todo's!` : `Simple Todo's`}</h1> */}
             </Link>
 
             <AuthOptions />
