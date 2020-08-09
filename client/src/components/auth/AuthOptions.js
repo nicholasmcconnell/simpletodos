@@ -14,7 +14,10 @@ export default function AuthOptions() {
             token: undefined,
             user: undefined
         });
+        localStorage.setItem('lastVisited', '');
         localStorage.setItem('auth-token', '')
+        history.push('/login');
+
     }
 
     return (

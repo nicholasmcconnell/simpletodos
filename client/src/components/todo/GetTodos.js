@@ -13,6 +13,9 @@ export default function GetTodos() {
 
     const history = useHistory();
 
+    localStorage.setItem('lastVisited', 'gettodos');
+
+
     useEffect(() => {
         if (!userData.user) {
             history.push('/login')

@@ -12,9 +12,12 @@ export default function Login() {
     const { userData, setUserData } = useContext(UserContext);
     const history = useHistory();
 
+
+
     useEffect(() => {
+        const lastVisited = localStorage.getItem('lastVisited')
         if (userData.user) {
-            history.push('/')
+            history.push(lastVisited)
         }
     });
 

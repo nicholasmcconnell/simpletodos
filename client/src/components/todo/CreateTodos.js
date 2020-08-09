@@ -14,6 +14,9 @@ export default function CreateTodos() {
     const { userData } = useContext(UserContext);
     const history = useHistory();
 
+    localStorage.setItem('lastVisited', 'createtodos');
+
+
     useEffect(() => {
         if (!userData.user) {
             history.push('/login')
