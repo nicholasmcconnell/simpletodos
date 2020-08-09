@@ -1,6 +1,6 @@
 import React, { useEffect, useContext, useState } from 'react';
 import UserContext from '../../context/UserContext';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import ErrorNotice from '../misc/ErrorNotice';
 
 export default function SearchTodos() {
@@ -9,6 +9,9 @@ export default function SearchTodos() {
 
     const { userData } = useContext(UserContext);
     const history = useHistory();
+
+    localStorage.setItem('lastVisited', 'searchtodos')
+
 
     useEffect(() => {
         if (!userData.user) {
@@ -42,9 +45,10 @@ export default function SearchTodos() {
                     />
 
                     <input type='submit' value='Search' />
-
-
                 </form>
+                <Link to='/'>
+                    <button className='type-button' value='Home'>Home</button>
+                </Link>
             </div>
         </div>
     )

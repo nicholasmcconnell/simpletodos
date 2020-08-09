@@ -24,12 +24,12 @@ function App() {
   console.log('1', userData)
 
   useEffect(() => {
-    console.log('useEffect')
+    console.log('useEffect in appjs')
     const checkLoggedIn = async () => {
       let token = localStorage.getItem("auth-token");
       if (token === null) {
-        localStorage.setItem('auth-token', '');
         localStorage.setItem('lastVisited', '');
+        localStorage.setItem('auth-token', '');
         token = '';
         return;
       }

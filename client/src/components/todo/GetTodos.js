@@ -80,7 +80,7 @@ export default function GetTodos() {
                 {error && (
                     <ErrorNotice message={error} clearError={() => setError(undefined)} />
                 )}
-                <button className='type-button' value='GetTodos' onClick={getTodos}>Fetch Todos</button>
+                {/* <button className='type-button' value='GetTodos' onClick={getTodos}>Fetch Todos</button> */}
 
 
                 <div className='card-container'>
