@@ -10,6 +10,9 @@ router.route('/')
 router.route('/all')
     .get(auth, todoController.getTodos);
 
+router.route('/latest')
+    .get(auth, todoController.getTodo)
+
 router.route('/:id')
     .delete(auth, todoController.deleteTodo);
 

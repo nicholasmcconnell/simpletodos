@@ -44,6 +44,13 @@ module.exports = {
                 .catch(err => res.status(422).json(err));
         }
     },
+    getTodo: async (req, res) => {
+        db.Todo
+        .find({ userId: req.user })
+        .sort({ created_at: -1 })
+        .then(dbModel => res.json(dbModel))
+        .catch(err => res.status(422).json(err));
+    },
 
     deleteTodo: async (req, res) => {
         const todo = await Todo.findOne({ userId: req.user, _id: req.params.id });

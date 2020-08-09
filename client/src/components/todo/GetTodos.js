@@ -32,21 +32,21 @@ export default function GetTodos() {
             )
     }, [])
 
-    const getTodos = async () => {
-        try {
-            await API.getTodos(userData.token)
-                .then(res =>
-                    setTodoList(res.data)
-                )
-                .catch(err =>
-                    // console.log(err.response.data.msg)
-                    console.log('gettodos function', err)
-                        (err.response.data.msg && setError(err.response.data.msg))
-                )
-        } catch (err) {
-            console.log('gettodos.js catch', err)
-        }
-    }
+    // const getTodos = async () => {
+    //     try {
+    //         await API.getTodos(userData.token)
+    //             .then(res =>
+    //                 setTodoList(res.data)
+    //             )
+    //             .catch(err =>
+    //                 // console.log(err.response.data.msg)
+    //                 console.log('gettodos function', err)
+    //                     (err.response.data.msg && setError(err.response.data.msg))
+    //             )
+    //     } catch (err) {
+    //         console.log('gettodos.js catch', err)
+    //     }
+    // }
 
 
     const deleteTodos = async (id) => {

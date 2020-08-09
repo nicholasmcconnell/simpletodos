@@ -4,6 +4,7 @@ import UserContext from '../../context/UserContext';
 import API from '../../utils/todoAPI';
 import ErrorNotice from '../misc/ErrorNotice';
 import SuccessNotice from '../misc/SuccessNotice';
+import Card from '../../components/layout/Card';
 
 export default function CreateTodos() {
 
@@ -33,6 +34,7 @@ export default function CreateTodos() {
 
             await API.createTodos(newTodo, userData.token)
                 .then(res => setTodoSuccess(`Success, ${userData.user.displayName}!  Your Todo has been saved.`))
+                // .then API.get
                 .catch(err =>
                     (err.response.data.msg && setError(err.response.data.msg))
                 )
@@ -86,6 +88,8 @@ export default function CreateTodos() {
                 <Link to='/'>
                     <button className='type-button' value='Home'>Home</button>
                 </Link>
+
+                {/* <Card /> */}
             </div>
         </div>
     )
