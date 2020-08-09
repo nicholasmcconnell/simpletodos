@@ -19,7 +19,8 @@ ___
 * React-router-dom
 * axios
 * express
-* CSS#
+* CSS3
+* ES6
 
 	
 ## Setup
