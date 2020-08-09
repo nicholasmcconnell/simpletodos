@@ -20,7 +20,7 @@ function Home() {
         // // let dataPromise = userDataAwait()
         // userDataAwait();
         // console.log('before if', userData)
-
+        console.log('2', userData)
 
         if (!userData.user) {
             history.push('/login')

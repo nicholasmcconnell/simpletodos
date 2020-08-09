@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, useHistory } from 'react-router-dom';
 import UserContext from './context/UserContext';
 import Axios from 'axios';
 
@@ -19,7 +19,12 @@ function App() {
     user: undefined
   })
 
+  const history = useHistory();
+
+  console.log('1', userData)
+
   useEffect(() => {
+    console.log('useEffect')
     const checkLoggedIn = async () => {
       let token = localStorage.getItem("auth-token");
       if (token === null) {
@@ -51,16 +56,16 @@ function App() {
       <BrowserRouter>
         <UserContext.Provider value={{ userData, setUserData }}>
           <Header />
-          <div className='page'>
+          {/* <div className='page'> */}
             <Switch>
-              <Route exact path='/' component={Home} />
+              <Route exact path='/' component={Home}  />
               <Route path='/login' component={Login} />
               <Route path='/register' component={Register} />
               <Route path='/createtodos' component={CreateTodos} />
               <Route path='/gettodos' component={GetTodos} />
               <Route path='/searchtodos' component={SearchTodos} />
             </Switch>
-          </div>
+          {/* </div> */}
         </UserContext.Provider>
       </BrowserRouter>
     </>

@@ -18,7 +18,7 @@ export default function CreateTodos() {
         if (!userData.user) {
             history.push('/login')
         }
-    });
+    }, []);
 
     const submit = async (e) => {
         e.preventDefault();
@@ -42,7 +42,7 @@ export default function CreateTodos() {
                 <h2>CreateTodos</h2>
                 {error && (
                     <ErrorNotice message={error} clearError={() => setError(undefined)} />
-                    )}
+                )}
                 <form className='form' onSubmit={submit}>
                     <label htmlFor='todo-title'>Title</label>
                     <input

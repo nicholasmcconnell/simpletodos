@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import UserContext from '../../context/UserContext';
 import Axios from 'axios';
@@ -9,8 +9,14 @@ export default function Login() {
     const [password, setPassword] = useState();
     const [error, setError] = useState();
 
-    const { setUserData } = useContext(UserContext);
+    const { userData, setUserData } = useContext(UserContext);
     const history = useHistory();
+
+    useEffect(() => {
+        if (userData.user) {
+            history.push('/')
+        }
+    });
 
     const submit = async (e) => {
         e.preventDefault();
