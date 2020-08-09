@@ -50,23 +50,23 @@ export default function GetTodos() {
     const deleteTodos = async (id) => {
         try {
             await API.deleteTodos(userData.token, id)
-                .then(() => {
-                    API.getTodos(userData.token)
+                .then(async () => {
+                    await API.getTodos(userData.token)
                         .then(res => {
-                            console.log(res.data);
                             setTodoList(res.data)
                         })
-                        .catch(err =>
-                            (err.response.data.msg && setError(err.response.data.msg))
-                        )
+                        .catch(err => {
+                            if (todoList.length >= 1) {
+                                setTodoList([]);
+                                (err.response.data.msg && setError(err.response.data.msg))
+                            }
+                        })
                 })
                 .catch(err =>
-                    (err.response.data.msg && setError(err.response.data.msg))
+                        (err.response.data.msg && setError(err.response.data.msg))
                 )
         } catch (err) {
             console.log(err)
-
-            console.log('hi', err);
         }
     }
 

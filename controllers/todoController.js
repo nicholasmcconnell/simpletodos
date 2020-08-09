@@ -33,33 +33,16 @@ module.exports = {
     getTodos: async (req, res) => {
         const todo = await Todo.findOne({ userId: req.user });
 
-        console.log('todod in gettodos', todo);
-
         if (!todo) {
-            console.log('in !todo if')
-            db.Todo
-                .find({ userId: req.user })
-                .sort({ created_at: -1 })
-                .then(dbModel => res.json(dbModel))
-                .then(res.status(400).json({ msg: '2No todos found associated with this User.' }))
-                .catch(err => {
-                    console.log('todo err1', err)
-                    res.status(400).json({ msg: '1No todos found associated with this User.' })
-                    // res.status(422).json(err)
-                });
+            return res.status(400).json({ msg: 'No todos found associated with this User.' })
         } else {
 
             db.Todo
                 .find({ userId: req.user })
                 .sort({ created_at: -1 })
                 .then(dbModel => res.json(dbModel))
-                .catch(err => {
-                    console.log('todo err', err)
-                    // res.status(400).json({ msg: 'No todos found associated with this User.' })
-                    res.status(422).json(err)
-                });
+                .catch(err => res.status(422).json(err));
         }
-
     },
 
     deleteTodo: async (req, res) => {
