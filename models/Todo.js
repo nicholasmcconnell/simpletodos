@@ -8,6 +8,7 @@ const todoSchema = new Schema({
     },
     youTubeUrl: {
         type: String,
+        required: true
     },
     description: {
         type: String,

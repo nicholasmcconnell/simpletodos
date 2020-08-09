@@ -1,32 +1,17 @@
 Todo
 
-Use <Link /> insead of useHistory??
-    FLOW
-    1. Add Todo
-        - on click show form
-            -has button to go back - history thing
-            - add todo
-    2. View Todo's
-        - on click show todos - axios call
-    3. Delete Todo's
-        - button on rendered todo's
-        // check user is logged in
-//then show page
-//make form
-
-
-Fix - 
-    1. When logged in - refreshing page goes to login but doens't log out user
-        - set conditional that if token is valid go to home page on refresh
-        - ISSUE - the page is rendering before entering running useEffect which checks local stroage for userData
-    2. COOKIE youtube problem
-
 GetTodos
     1. edit button
 
 Create todos
-    1. button to view todos - renders get todo component
-    2. success validatino shows on screen and clears form
+    1. button to todo page - little arrow to the right, arrow tot he left goeshome?
+    2. view recent todo - renders get todo component
+    3. single card
 
 Most Recent todo    
     1. Component that gets just that.
+
+Delete account
+    - delete user route
+
+
