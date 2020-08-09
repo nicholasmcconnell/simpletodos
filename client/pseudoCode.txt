@@ -23,16 +23,10 @@ Fix -
 
 GetTodos
     1. edit button
-    2. Error Notice show when todo returns Null
-    3. when deleted, set state and useEffect to refresh component. remove from screen
 
 Create todos
     1. button to view todos - renders get todo component
     2. success validatino shows on screen and clears form
-    3. 
 
 Most Recent todo    
     1. Component that gets just that.
-
-Navigatin buttons
-    1. back to menu...things like that.

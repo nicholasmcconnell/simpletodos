@@ -217,8 +217,8 @@ body, textarea {
 .video {
   margin-bottom: .5rem;
 }
-
-/* ERROR NOTICE */
+success
+/* ERROR/ NOTICE */
 
 .error-notice {
   margin: 1rem 0;
@@ -236,6 +236,28 @@ body, textarea {
   height: 20px;
   border-radius: 50%;
   background-color: #bd5151;
+  color: #ffffff;
+}
+
+.success-notice {
+  margin: 1rem 0;
+  padding: .5rem;
+  border: 1px solid #93e07c;
+  border-radius: 5px;
+  background-color: #b5e6a6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.success-notice span {
+  margin-left: .5rem;
+}
+
+.success-notice button {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #d36262;
   color: #ffffff;
 }
 
