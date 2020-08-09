@@ -22,7 +22,7 @@ ul {
   list-style: none;
 }
 
-button, input[type='submit'], textarea {
+button, input[type='submit'], .form input[type='reset'], textarea {
   border: none;
   background: none;
   color: unset;
@@ -107,7 +107,11 @@ body, textarea {
   margin-bottom: .2rem;
 }
 
-.form input[type='text'], .form input[type='email'], .form input[type='password'], .form input[type='url'], .form textarea {
+.form input[type='text'], 
+.form input[type='email'], 
+.form input[type='password'], 
+.form input[type='url'], 
+.form textarea {
   width: 100%;
   padding: .3rem;
   border: 1px solid #d3d3d3;
@@ -122,7 +126,8 @@ body, textarea {
   outline: none;
 }
 
-.form input[type='submit'] {
+.form input[type='submit'],
+.form input[type='reset'] {
   display: block;
   margin: 0 auto;
   margin-bottom: .8rem;
@@ -134,7 +139,8 @@ body, textarea {
   font-size: 1.1rem;
   justify-content: space-between;
 }
-.form input[type='submit']:hover {
+.form input[type='submit']:hover, 
+.form input[type='reset']:hover {
   background-color: #cfe9ce;
   box-shadow: inset 0px 0px 7px #3c90cf;
   outline: none;
@@ -211,14 +217,14 @@ body, textarea {
 
 .buttons-div {
   display: flex;
-  justify-content: space-between;
-  /* align-items: center; */
+  justify-content: space-between 10px;
+  align-items: center;
 }
 .video {
   margin-bottom: .5rem;
 }
-success
-/* ERROR/ NOTICE */
+
+/* ERROR/SUCCESS NOTICE */
 
 .error-notice {
   margin: 1rem 0;
