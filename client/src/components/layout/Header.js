@@ -6,8 +6,6 @@ import AuthOptions from '../auth/AuthOptions';
 export default function Header() {
     const { userData } = useContext(UserContext);
 
-    console.log(userData);
-
     return (
         <header id='header'>
             <Link to='/'>

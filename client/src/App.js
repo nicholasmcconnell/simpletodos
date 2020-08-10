@@ -21,10 +21,7 @@ function App() {
 
   const history = useHistory();
 
-  console.log('1', userData)
-
   useEffect(() => {
-    console.log('useEffect in appjs')
     const checkLoggedIn = async () => {
       let token = localStorage.getItem("auth-token");
       if (token === null) {
