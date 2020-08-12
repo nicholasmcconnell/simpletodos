@@ -3,7 +3,19 @@ import Modal from '../layout/Modal';
 
 export default function Card(props) {
 
-    const [toggle, setToggle] = useState(true);
+    console.log('in card', props);
+
+    const [toggle, setToggle] = useState(false);
+    const [show, setShow] = useState(false)
+
+    const showModal = () => {
+        setShow(true)
+    }
+
+    const hideModal = () => {
+        setShow(false)
+    }
+
 
 
 
@@ -21,12 +33,10 @@ export default function Card(props) {
         console.log('true', toggle)
     }
 
-
-    console.log(toggle)
-
     return (
         <>
-        {/* {toggle && <Modal />} */}
+            {/* {toggle && <Modal />} */}
+
             <div className='card-body'>
                 <h3 className='card-title'>{props.todoList.title}</h3>
                 <p className='card-description'>{props.todoList.description}</p>
@@ -56,9 +66,16 @@ export default function Card(props) {
                 <div className='buttons-div'>
                     {console.log(toggle)}
                     {/* { toggle ? true : false} */}
-                    {(toggle) ?
+                    {/* {(toggle) ?
                         <button className='todo-card-button' onClick={() => setToggle(!toggle)}>Edit</button>
-                        : <button className='todo-card-button' onClick={() => setToggle(!toggle)}>Save</button>}
+                        : <button className='todo-card-button' onClick={() => setToggle(!toggle)}>Save</button>} */}
+                    <Modal
+                        show={show}
+                        handleClose={hideModal}
+                    >
+                    </Modal>
+
+                    <button className='todo-card-button' onClick={showModal}>Edit</button>
                     <button className='todo-card-button' onClick={() => props.deleteTodos(props.todoList._id)}>Delete</button>
                 </div>
             </div>
