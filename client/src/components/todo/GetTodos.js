@@ -24,14 +24,20 @@ export default function GetTodos() {
     });
 
     useEffect(() => {
-        console.log('useEffect get todos.')
         API.getTodos(userData.token)
-            .then(res =>
-                // console.log(res)
+            .then(res => {
+
+                // let responseData = res.data
+                // console.log(responseData)
+                // responseData.forEach(data => {
+                //     setTodoList([...todoList, data])
+                // });
+
+                // responseData.map(data => setTodoList(data))
                 setTodoList(res.data)
-            )
+            })
             .catch(err =>
-                (err.response.data.msg && setError(err.response.data.msg))
+                (err.response.data.msg && setError(err.response.data.msg) && console.log(err))
             )
     }, [])
 
@@ -100,7 +106,7 @@ export default function GetTodos() {
                             todoList={todo}
                             key={todo._id}
                             deleteTodos={deleteTodos}
-                            // editToggle={editToggle}
+                        // editToggle={editToggle}
                         />
 
                     ) : <p></p>}

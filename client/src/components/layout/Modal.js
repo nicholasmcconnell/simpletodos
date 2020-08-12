@@ -1,8 +1,9 @@
 import React from 'react'
+import Form from '../layout/Form'
 
 export default function Modal(props) {
 
-    console.log('in modal', props.show);
+    console.log('in modal', props);
 
 
     const showHideClassName = props.show ? "modal display-block" : "modal display-none";
@@ -12,8 +13,8 @@ export default function Modal(props) {
         <>
             <div id="myModal" className={showHideClassName}>
                 <div className="modal-main">
-                    {/* <span className="close">&times;</span> */}
-                    <p>Some text in the Modal..</p>
+                <Form props={props}/>
+                  
                     <button className="close" onClick={props.handleClose}>close</button>
                 </div>
             </div>
