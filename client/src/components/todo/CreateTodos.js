@@ -82,7 +82,7 @@ export default function CreateTodos() {
                     />
                     <div className='buttons-div'>
                         <input type='submit' value='Submit' />
-                        <input type='reset' value='Reset' />
+                        <input type='reset' value='Clear' />
                     </div>
                 </form>
                 <Link to='/'>

@@ -10,6 +10,8 @@ export default function GetTodos() {
     const { userData } = useContext(UserContext);
     const [todoList, setTodoList] = useState([]);
     const [error, setError] = useState();
+    // const [toggle, setToggle] = useEffect('');
+
 
     const history = useHistory();
 
@@ -25,6 +27,7 @@ export default function GetTodos() {
         console.log('useEffect get todos.')
         API.getTodos(userData.token)
             .then(res =>
+                // console.log(res)
                 setTodoList(res.data)
             )
             .catch(err =>
@@ -65,12 +68,20 @@ export default function GetTodos() {
                         })
                 })
                 .catch(err =>
-                        (err.response.data.msg && setError(err.response.data.msg))
+                    (err.response.data.msg && setError(err.response.data.msg))
                 )
         } catch (err) {
             console.log(err)
         }
     }
+
+    // const editToggle = (e) => {
+
+    //     setToggle(e.target.value);
+
+    //     console.log(e.target.value)
+
+    // }
 
     return (
         <div className='page'>
@@ -88,6 +99,7 @@ export default function GetTodos() {
                             todoList={todo}
                             key={todo._id}
                             deleteTodos={deleteTodos}
+                            // editToggle={editToggle}
                         />
 
                     ) : <p></p>}
