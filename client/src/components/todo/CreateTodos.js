@@ -4,6 +4,7 @@ import UserContext from '../../context/UserContext';
 import API from '../../utils/todoAPI';
 import ErrorNotice from '../misc/ErrorNotice';
 import SuccessNotice from '../misc/SuccessNotice';
+import Form from '../layout/Form';
 import Card from '../../components/layout/Card';
 
 export default function CreateTodos() {
@@ -28,9 +29,12 @@ export default function CreateTodos() {
     }, []);
 
     const submit = async (e) => {
+        console.log('in on submit')
         e.preventDefault();
         try {
             const newTodo = { title, youTubeUrl, description }
+
+            console.log(newTodo);
 
             await API.createTodos(newTodo, userData.token)
                 .then(res => setTodoSuccess(`Success, ${userData.user.displayName}!  Your Todo has been saved.`))
@@ -59,6 +63,15 @@ export default function CreateTodos() {
                     }
                     } />
                 )}
+
+                {/* <Form
+                    onSubmit={submit.bind()}
+                    // setTitle={() => setTitle}
+                    // setYouTubeUrl={setYouTubeUrl}
+                    // setDescription={setDescription}
+
+                /> */}
+
                 <form className='form' onSubmit={submit}>
                     <label htmlFor='todo-title'>Title</label>
                     <input

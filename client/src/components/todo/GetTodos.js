@@ -96,6 +96,7 @@ export default function GetTodos() {
                 <div className='card-container'>
                     {todoList.length ? todoList.map(todo =>
                         <Card
+                            id={todo._id}
                             todoList={todo}
                             key={todo._id}
                             deleteTodos={deleteTodos}
