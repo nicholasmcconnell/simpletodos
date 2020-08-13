@@ -27,6 +27,16 @@ export default function CreateTodos() {
         }
     }, []);
 
+    const setIntialStates = () => {
+        // Send initial state as prop to error and success
+        setTodoSuccess(undefined);
+        setError(undefined)
+        setTitle(undefined);
+        setYouTubeUrl(undefined);
+        setDescription(undefined);
+
+    }
+
     const submit = async (e) => {
         e.preventDefault();
         try {
@@ -42,6 +52,7 @@ export default function CreateTodos() {
         } catch (err) {
             console.log("Something when wrong")
         }
+        // setIntialStates();
     }
 
     return (
@@ -90,7 +101,7 @@ export default function CreateTodos() {
                         onChange={e => setDescription(e.target.value)}
                     />
                     <div className='buttons-div'>
-                        <input type='submit' value='Submit' />
+                        <input type='submit' value='Submit'/>
                         <input type='reset' value='Clear' />
                     </div>
                 </form>
