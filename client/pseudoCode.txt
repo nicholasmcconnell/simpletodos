@@ -9,6 +9,7 @@ Create todos
     3. single card
     4. states need to be reset after successfull todo creation.
         - hide buttons until success messageis closed - or just route to get todos after successful todo creation
+        - or make clear button reset everything and just be done with it
 Most Recent todo    
     1. Component that gets just that.
 
