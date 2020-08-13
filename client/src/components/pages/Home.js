@@ -18,7 +18,7 @@ function Home() {
     });
     return (
         <>
-            <TodoOptions />
+           <TodoOptions />
         </>
     )
 }

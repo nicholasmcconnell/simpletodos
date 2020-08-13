@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Switch, Route, useHistory } from 'react-router-dom';
 import UserContext from './context/UserContext';
+// import SuccessContext from './context/SuccessContext';
 import Axios from 'axios';
 
 import Header from './components/layout/Header'
@@ -18,6 +19,8 @@ function App() {
     token: undefined,
     user: undefined
   })
+
+  // const [todoSuccess, setTodoSuccess ] = useState();
 
   const history = useHistory();
 
@@ -53,17 +56,19 @@ function App() {
     <>
       <BrowserRouter>
         <UserContext.Provider value={{ userData, setUserData }}>
-          <Header />
-          {/* <div className='page'> */}
+          {/* <SuccessContext.Provider value={{ todoSuccess, setTodoSuccess }}> */}
+            <Header />
+            {/* <div className='page'> */}
             <Switch>
-              <Route exact path='/' component={Home}  />
+              <Route exact path='/' component={Home} />
               <Route path='/login' component={Login} />
               <Route path='/register' component={Register} />
               <Route path='/createtodos' component={CreateTodos} />
               <Route path='/gettodos' component={GetTodos} />
               <Route path='/searchtodos' component={SearchTodos} />
             </Switch>
-          {/* </div> */}
+            {/* </div> */}
+          {/* </SuccessContext.Provider> */}
         </UserContext.Provider>
       </BrowserRouter>
     </>

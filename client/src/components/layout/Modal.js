@@ -1,5 +1,5 @@
 import React from 'react'
-import Form from './UpdateForm'
+import UpdateForm from './UpdateForm'
 
 export default function Modal(props) {
 
@@ -13,7 +13,7 @@ export default function Modal(props) {
         <>
             <div id="myModal" className={showHideClassName}>
                 <div className="modal-main">
-                <Form props={props}/>
+                <UpdateForm props={props}/>
                   
                     <button className="close" onClick={() => { props.handleClose(); props.getTodos(); }}>close</button>
                 </div>

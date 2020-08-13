@@ -4,6 +4,7 @@ import UserContext from '../../context/UserContext';
 import API from '../../utils/todoAPI';
 import ErrorNotice from '../misc/ErrorNotice';
 import SuccessNotice from '../misc/SuccessNotice';
+// import SuccessContext from '../../context/SuccessContext';
 import Form from '../layout/UpdateForm';
 import Card from '../../components/layout/Card';
 
@@ -16,6 +17,7 @@ export default function CreateTodos() {
     const [todoSuccess, setTodoSuccess] = useState();
 
     const { userData } = useContext(UserContext);
+    // const { todoSuccess, setTodoSuccess} = useContext(SuccessContext);
     const history = useHistory();
 
     localStorage.setItem('lastVisited', 'createtodos');
@@ -98,9 +100,9 @@ export default function CreateTodos() {
                         <input type='reset' value='Clear' />
                     </div>
                 </form>
-                <Link to='/'>
-                    <button className='type-button' value='Home'>Home</button>
-                </Link>
+                {/* <Link to='/'> */}
+                    <button className='type-button' onClick={() => {history.push('/'); setTodoSuccess(undefined);}} value='Home'>Home</button>
+                {/* </Link> */}
 
                 {/* <Card /> */}
             </div>
