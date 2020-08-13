@@ -64,6 +64,22 @@ module.exports = {
             .then(dbModel => dbModel.remove())
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
+    },
+
+    updateTodo: async (req, res) => {
+        const todo = await Todo.findOne({ userId: req.user, _id: req.params.id }, req.body);
+
+
+        if (!todo) {
+            return res.status(400).json({ msg: 'No todo found with this ID associated with this User.' })
+        }
+
+        db.Todo
+        .findOneAndUpdate({ userId: req.user, _id: req.params.id }, req.body, {useFindAndModify: false})
+        // .then(dbModel => dbModel.updateOne())
+        .then(dbModel => res.json(dbModel))
+        .catch(err => res.status(422).json(err));
+
     }
 
 }

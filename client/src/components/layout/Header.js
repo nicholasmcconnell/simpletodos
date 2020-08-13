@@ -10,7 +10,7 @@ export default function Header() {
         <header id='header'>
             <Link to='/'>
             {
-                userData.user ? <h1 className='title'>{userData.user.displayName}'s Todo's!</h1> : <h1 className='title'>Simple Todo's</h1>
+                userData.user ? <h1 className='title'>{userData.user.displayName}'s Todos!</h1> : <h1 className='title'>Simple Todos!</h1>
             }
             </Link>
 

@@ -1,42 +1,45 @@
-import React, { useState, useContext, useEffect } from 'react'
-import { useHistory, Link } from 'react-router-dom';
+import React, { useState, useEffect, useContext } from 'react';
 import UserContext from '../../context/UserContext';
 import API from '../../utils/todoAPI';
 import ErrorNotice from '../misc/ErrorNotice';
 import SuccessNotice from '../misc/SuccessNotice';
-import Form from '../layout/UpdateForm';
-import Card from '../../components/layout/Card';
 
-export default function CreateTodos() {
+export default function Form(props) {
 
-    const [title, setTitle] = useState('');
-    const [youTubeUrl, setYouTubeUrl] = useState();
-    const [description, setDescription] = useState();
+    const { title, youTubeUrl, description } = props.props.todoList;
+
+    const [titleUpdate, setTitleUpdate] = useState('');
+    const [youTubeUrlUpdate, setYouTubeUrlUpdate] = useState();
+    const [descriptionUpdate, setDescriptionUpdate] = useState();
     const [error, setError] = useState();
     const [todoSuccess, setTodoSuccess] = useState();
 
     const { userData } = useContext(UserContext);
-    const history = useHistory();
 
-    localStorage.setItem('lastVisited', 'createtodos');
 
-    console.log('userdata', userData)
+    // useEffect(() => {
+    //     setTitleUpdate(title);
 
-    useEffect(() => {
-        if (!userData.user) {
-            history.push('/login')
-        }
-    }, []);
+    // })
+
+    const handleInputChange = (e) => {
+        // e.preventDefault();
+        console.log(e.target.value);
+        // const { value } = e.target;
+        setTitleUpdate({ value: e.target.value });
+    }
+
+    //   handleInputßßChange = titleUpdate.bind(title)
 
     const submit = async (e) => {
         console.log('in on submit')
         e.preventDefault();
         try {
-            const newTodo = { title, youTubeUrl, description }
+            const updateTodo = { titleUpdate, youTubeUrlUpdate, descriptionUpdate }
 
-            console.log(newTodo);
+            console.log(updateTodo);
 
-            await API.createTodos(newTodo, userData.token)
+            await API.updateTodo(updateTodo, userData.token)
                 .then(res => setTodoSuccess(`Success, ${userData.user.displayName}!  Your Todo has been saved.`))
                 // .then API.get
                 .catch(err =>
@@ -48,10 +51,11 @@ export default function CreateTodos() {
         }
     }
 
+    // console.log('in forms', title, youTubeUrl, description )
     return (
-        <div className='page'>
+        <>
+            {/* {console.log(typeof title)} */}
             <div className='container'>
-                <h2>CreateTodos</h2>
                 {error && (
                     <ErrorNotice message={error} clearError={() => setError(undefined)} />
                 )}
@@ -59,51 +63,40 @@ export default function CreateTodos() {
                 {todoSuccess && (
                     <SuccessNotice message={todoSuccess} clearSuccess={() => {
                         setTodoSuccess(undefined);
-                        setTitle('');
+                        // setTitle('');
                     }
                     } />
                 )}
-
-                {/* <Form
-                    onSubmit={submit.bind()}
-                    // setTitle={() => setTitle}
-                    // setYouTubeUrl={setYouTubeUrl}
-                    // setDescription={setDescription}
-
-                /> */}
-
                 <form className='form' onSubmit={submit}>
                     <label htmlFor='todo-title'>Title</label>
                     <input
                         id='todo-title'
                         type='text'
-                        onChange={e => setTitle(e.target.value)}
-                    />
+                        defaultValue={title}
+                        onChange={e => setTitleUpdate(e.target.value)}
+                    ></input>
 
                     <label htmlFor='todo-youtubeurl'>YouTube Desktop Application URL</label>
                     <input
                         id='todo-youtubeurl'
                         type='url'
-                        onChange={e => setYouTubeUrl(e.target.value)}
+                        defaultValue={youTubeUrl}
+                        onChange={e => setYouTubeUrlUpdate(e.target.value)}
                     />
 
                     <label htmlFor='todo-description'>Description</label>
                     <textarea
                         id='todo-description'
                         name='todo-description'
-                        onChange={e => setDescription(e.target.value)}
+                        defaultValue={description}
+                        onChange={e => setDescriptionUpdate(e.target.value)}
                     />
                     <div className='buttons-div'>
                         <input type='submit' value='Submit' />
                         <input type='reset' value='Clear' />
                     </div>
                 </form>
-                <Link to='/'>
-                    <button className='type-button' value='Home'>Home</button>
-                </Link>
-
-                {/* <Card /> */}
             </div>
-        </div>
+        </>
     )
 }

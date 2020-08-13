@@ -1,5 +1,5 @@
 import React from 'react'
-import Form from '../layout/Form'
+import Form from './UpdateForm'
 
 export default function Modal(props) {
 

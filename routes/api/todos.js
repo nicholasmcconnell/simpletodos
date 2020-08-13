@@ -16,5 +16,8 @@ router.route('/latest')
 router.route('/:id')
     .delete(auth, todoController.deleteTodo);
 
+router.route('/:id')
+    .put(auth, todoController.updateTodo)
+
 module.exports = router;
 
