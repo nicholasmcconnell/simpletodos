@@ -73,6 +73,7 @@ export default function Card(props) {
                         show={show}
                         handleClose={hideModal}
                         todoList={props.todoList}
+                        getTodos={props.getTodos}
                     >
                     </Modal>
 

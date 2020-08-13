@@ -59,7 +59,7 @@ export default function CreateTodos() {
                 {todoSuccess && (
                     <SuccessNotice message={todoSuccess} clearSuccess={() => {
                         setTodoSuccess(undefined);
-                        setTitle('');
+                        // setTitle('');
                     }
                     } />
                 )}

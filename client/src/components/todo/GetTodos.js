@@ -26,36 +26,28 @@ export default function GetTodos() {
     useEffect(() => {
         API.getTodos(userData.token)
             .then(res => {
-
-                // let responseData = res.data
-                // console.log(responseData)
-                // responseData.forEach(data => {
-                //     setTodoList([...todoList, data])
-                // });
-
-                // responseData.map(data => setTodoList(data))
-                setTodoList(res.data)
+               setTodoList(res.data)
             })
             .catch(err =>
                 (err.response.data.msg && setError(err.response.data.msg) && console.log(err))
             )
     }, [])
 
-    // const getTodos = async () => {
-    //     try {
-    //         await API.getTodos(userData.token)
-    //             .then(res =>
-    //                 setTodoList(res.data)
-    //             )
-    //             .catch(err =>
-    //                 // console.log(err.response.data.msg)
-    //                 console.log('gettodos function', err)
-    //                     (err.response.data.msg && setError(err.response.data.msg))
-    //             )
-    //     } catch (err) {
-    //         console.log('gettodos.js catch', err)
-    //     }
-    // }
+    const getTodos = async () => {
+        console.log('in get todo function')
+        try {
+            await API.getTodos(userData.token)
+                .then(res =>
+                    setTodoList(res.data)
+                )
+                .catch(err =>
+                    // console.log(err.response.data.msg)
+                        (err.response.data.msg && setError(err.response.data.msg))
+                )
+        } catch (err) {
+            console.log(err)
+        }
+    }
 
 
     const deleteTodos = async (id) => {
@@ -106,6 +98,7 @@ export default function GetTodos() {
                             todoList={todo}
                             key={todo._id}
                             deleteTodos={deleteTodos}
+                            getTodos={getTodos}
                         // editToggle={editToggle}
                         />
 

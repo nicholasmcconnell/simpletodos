@@ -10,7 +10,7 @@ export default function Form(props) {
 
     const { _id, title, youTubeUrl, description } = props.props.todoList;
 
-    const [titleUpdate, setTitleUpdate] = useState('');
+    const [titleUpdate, setTitleUpdate] = useState();
     const [youTubeUrlUpdate, setYouTubeUrlUpdate] = useState();
     const [descriptionUpdate, setDescriptionUpdate] = useState();
     const [error, setError] = useState();
@@ -47,7 +47,6 @@ export default function Form(props) {
 
             await API.updateTodo(updateTodo, userData.token, _id)
                 .then(res => setTodoSuccess(`Success, ${userData.user.displayName}!  Your Todo has been saved.`))
-                // .then API.get
                 .catch(err =>
                     (err.response.data.msg && setError(err.response.data.msg))
                 )

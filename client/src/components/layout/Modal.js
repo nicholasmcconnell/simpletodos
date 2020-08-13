@@ -15,7 +15,7 @@ export default function Modal(props) {
                 <div className="modal-main">
                 <Form props={props}/>
                   
-                    <button className="close" onClick={props.handleClose}>close</button>
+                    <button className="close" onClick={() => { props.handleClose(); props.getTodos(); }}>close</button>
                 </div>
             </div>
         </>
