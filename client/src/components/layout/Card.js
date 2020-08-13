@@ -14,13 +14,9 @@ export default function Card(props) {
         setShow(false)
     }
 
-    //set to take last 11 digits of URL then url can come from anywhere
     const youTubeURL = props.todoList.youTubeUrl;
-    const youTubeId = youTubeURL.split('=')[1];
-    // const url = "https://www.youtube.com/embed/" + youTubeId;
-    // console.log(url);
-
-    // const youTubeId = 'hPq0fguAPBs';
+    const urlArray = (youTubeURL.split(youTubeURL.charAt(youTubeURL.length - 12)))
+    const youTubeId = urlArray[urlArray.length-1];
 
     return (
         <>

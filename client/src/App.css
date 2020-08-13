@@ -303,9 +303,11 @@ body, textarea {
 }
 
 .modal-main {
+  border-radius: 4px;
+  padding: 3% 3% 3% 3%;
   position:fixed;
   background: white;
-  width: 80%;
+  width: 75%;
   height: auto;
   top:50%;
   left:50%;
@@ -322,9 +324,10 @@ body, textarea {
 
 /* The Close Button */
 .close {
-  color: #aaaaaa;
+  margin: 1% 2% -2%;
+  color: #868686;
   float: right;
-  font-size: 28px;
+  font-size: 20px;
   font-weight: bold;
 }
 
