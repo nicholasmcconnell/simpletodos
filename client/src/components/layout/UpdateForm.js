@@ -37,10 +37,11 @@ export default function Form(props) {
         console.log('in on submit')
         e.preventDefault();
         try {
+
             const updateTodo = {  
-                title: titleUpdate, 
-                youTubeUrl: youTubeUrlUpdate,
-                description: descriptionUpdate 
+                title: !titleUpdate ? description : titleUpdate, 
+                youTubeUrl: !youTubeUrlUpdate ? youTubeUrl : youTubeUrlUpdate, 
+                description: !descriptionUpdate ? description : descriptionUpdate
             }
 
             console.log(updateTodo);
@@ -95,6 +96,7 @@ export default function Form(props) {
                         name='todo-description'
                         defaultValue={description}
                         onChange={e => setDescriptionUpdate(e.target.value)}
+
                     />
                     <div className='buttons-div'>
                         <input type='submit' value='Submit' />
