@@ -2,9 +2,6 @@ const router = require('express').Router();
 const userController = require('../../controllers/userController');
 const auth = require('../../middleware/auth');
 
-// const { User } = require('../../models/');
-
-
 router.route('/register')
     .post(userController.createUser);
 

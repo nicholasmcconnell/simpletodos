@@ -17,12 +17,9 @@ export default function CreateTodos() {
     const [todoSuccess, setTodoSuccess] = useState();
 
     const { userData } = useContext(UserContext);
-    // const { todoSuccess, setTodoSuccess} = useContext(SuccessContext);
     const history = useHistory();
 
     localStorage.setItem('lastVisited', 'createtodos');
-
-    console.log('userdata', userData)
 
     useEffect(() => {
         if (!userData.user) {
@@ -31,12 +28,9 @@ export default function CreateTodos() {
     }, []);
 
     const submit = async (e) => {
-        console.log('in on submit')
         e.preventDefault();
         try {
             const newTodo = { title, youTubeUrl, description }
-
-            console.log(newTodo);
 
             await API.createTodos(newTodo, userData.token)
                 .then(res => setTodoSuccess(`Success, ${userData.user.displayName}!  Your Todo has been saved.`))
@@ -46,7 +40,7 @@ export default function CreateTodos() {
                 )
 
         } catch (err) {
-            console.log("something when wrong")
+            console.log("Something when wrong")
         }
     }
 
@@ -100,11 +94,8 @@ export default function CreateTodos() {
                         <input type='reset' value='Clear' />
                     </div>
                 </form>
-                {/* <Link to='/'> */}
-                    <button className='type-button' onClick={() => {history.push('/'); setTodoSuccess(undefined);}} value='Home'>Home</button>
-                {/* </Link> */}
+                <button className='type-button' onClick={() => { history.push('/'); setTodoSuccess(undefined); }} value='Home'>Home</button>
 
-                {/* <Card /> */}
             </div>
         </div>
     )

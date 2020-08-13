@@ -3,8 +3,6 @@ import Modal from '../layout/Modal';
 
 export default function Card(props) {
 
-    console.log('in card', props);
-
     const [toggle, setToggle] = useState(false);
     const [show, setShow] = useState(false)
 
@@ -16,9 +14,6 @@ export default function Card(props) {
         setShow(false)
     }
 
-
-
-
     //set to take last 11 digits of URL then url can come from anywhere
     const youTubeURL = props.todoList.youTubeUrl;
     const youTubeId = youTubeURL.split('=')[1];
@@ -26,12 +21,6 @@ export default function Card(props) {
     // console.log(url);
 
     // const youTubeId = 'hPq0fguAPBs';
-
-    if (!toggle) {
-        console.log('false', toggle)
-    } else {
-        console.log('true', toggle)
-    }
 
     return (
         <>
@@ -64,11 +53,6 @@ export default function Card(props) {
 
 
                 <div className='buttons-div'>
-                    {console.log(toggle)}
-                    {/* { toggle ? true : false} */}
-                    {/* {(toggle) ?
-                        <button className='todo-card-button' onClick={() => setToggle(!toggle)}>Edit</button>
-                        : <button className='todo-card-button' onClick={() => setToggle(!toggle)}>Save</button>} */}
                     <Modal
                         show={show}
                         handleClose={hideModal}

@@ -26,7 +26,7 @@ export default function GetTodos() {
     useEffect(() => {
         API.getTodos(userData.token)
             .then(res => {
-               setTodoList(res.data)
+                setTodoList(res.data)
             })
             .catch(err =>
                 (err.response.data.msg && setError(err.response.data.msg) && console.log(err))
@@ -34,15 +34,13 @@ export default function GetTodos() {
     }, [])
 
     const getTodos = async () => {
-        console.log('in get todo function')
         try {
             await API.getTodos(userData.token)
                 .then(res =>
                     setTodoList(res.data)
                 )
                 .catch(err =>
-                    // console.log(err.response.data.msg)
-                        (err.response.data.msg && setError(err.response.data.msg))
+                    (err.response.data.msg && setError(err.response.data.msg))
                 )
         } catch (err) {
             console.log(err)
@@ -73,14 +71,6 @@ export default function GetTodos() {
         }
     }
 
-    // const editToggle = (e) => {
-
-    //     setToggle(e.target.value);
-
-    //     console.log(e.target.value)
-
-    // }
-
     return (
         <div className='page'>
             <div className='container'>
@@ -88,8 +78,6 @@ export default function GetTodos() {
                 {error && (
                     <ErrorNotice message={error} clearError={() => setError(undefined)} />
                 )}
-                {/* <button className='type-button' value='GetTodos' onClick={getTodos}>Fetch Todos</button> */}
-
 
                 <div className='card-container'>
                     {todoList.length ? todoList.map(todo =>
@@ -99,7 +87,6 @@ export default function GetTodos() {
                             key={todo._id}
                             deleteTodos={deleteTodos}
                             getTodos={getTodos}
-                        // editToggle={editToggle}
                         />
 
                     ) : <p></p>}

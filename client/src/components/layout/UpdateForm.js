@@ -6,15 +6,12 @@ import SuccessNotice from '../misc/SuccessNotice';
 
 export default function Form(props) {
 
-    console.log('updateform', props)
-
     const { _id, title, youTubeUrl, description } = props.props.todoList;
 
     const [titleUpdate, setTitleUpdate] = useState();
     const [youTubeUrlUpdate, setYouTubeUrlUpdate] = useState();
     const [descriptionUpdate, setDescriptionUpdate] = useState();
     const [error, setError] = useState();
-    // const [todoSuccess, setTodoSuccess] = useState();
 
     const { userData } = useContext(UserContext);
 
@@ -24,27 +21,15 @@ export default function Form(props) {
 
     // })
 
-    const handleInputChange = (e) => {
-        // e.preventDefault();
-        console.log(e.target.value);
-        // const { value } = e.target;
-        setTitleUpdate({ value: e.target.value });
-    }
-
-    //   handleInputßßChange = titleUpdate.bind(title)
-
     const submit = async (e) => {
-        console.log('in on submit')
         e.preventDefault();
         try {
 
-            const updateTodo = {  
-                title: !titleUpdate ? description : titleUpdate, 
-                youTubeUrl: !youTubeUrlUpdate ? youTubeUrl : youTubeUrlUpdate, 
+            const updateTodo = {
+                title: !titleUpdate ? description : titleUpdate,
+                youTubeUrl: !youTubeUrlUpdate ? youTubeUrl : youTubeUrlUpdate,
                 description: !descriptionUpdate ? description : descriptionUpdate
             }
-
-            console.log(updateTodo);
 
             await API.updateTodo(updateTodo, userData.token, _id)
                 .then(res => props.setTodoSuccess(`Success, ${userData.user.displayName}!  Your Todo has been saved.`))
@@ -53,14 +38,12 @@ export default function Form(props) {
                 )
 
         } catch (err) {
-            console.log("something when wrong")
+            console.log(err);
         }
     }
 
-    // console.log('in forms', title, youTubeUrl, description )
     return (
         <>
-            {/* {console.log(typeof title)} */}
             <div className='container'>
                 {error && (
                     <ErrorNotice message={error} clearError={() => setError(undefined)} />
@@ -69,7 +52,6 @@ export default function Form(props) {
                 {props.todoSuccess && (
                     <SuccessNotice message={props.todoSuccess} clearSuccess={() => {
                         props.setTodoSuccess(undefined);
-                        // setTitle('');
                     }
                     } />
                 )}
