@@ -6,7 +6,9 @@ import SuccessNotice from '../misc/SuccessNotice';
 
 export default function Form(props) {
 
-    const { title, youTubeUrl, description } = props.props.todoList;
+    console.log('updateform', props)
+
+    const { _id, title, youTubeUrl, description } = props.props.todoList;
 
     const [titleUpdate, setTitleUpdate] = useState('');
     const [youTubeUrlUpdate, setYouTubeUrlUpdate] = useState();
@@ -35,11 +37,15 @@ export default function Form(props) {
         console.log('in on submit')
         e.preventDefault();
         try {
-            const updateTodo = { titleUpdate, youTubeUrlUpdate, descriptionUpdate }
+            const updateTodo = {  
+                title: titleUpdate, 
+                youTubeUrl: youTubeUrlUpdate,
+                description: descriptionUpdate 
+            }
 
             console.log(updateTodo);
 
-            await API.updateTodo(updateTodo, userData.token)
+            await API.updateTodo(updateTodo, userData.token, _id)
                 .then(res => setTodoSuccess(`Success, ${userData.user.displayName}!  Your Todo has been saved.`))
                 // .then API.get
                 .catch(err =>

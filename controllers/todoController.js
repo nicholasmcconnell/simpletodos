@@ -59,6 +59,10 @@ module.exports = {
             return res.status(400).json({ msg: 'No todo found with this ID associated with this User.' })
         }
 
+        if (!title || !description || !youTubeUrl) {
+            return res.status(400).json({ msg: 'Not all fields have been entered.' })
+        }
+
         db.Todo
             .findOne({ userId: req.user, _id: req.params.id })
             .then(dbModel => dbModel.remove())
@@ -68,6 +72,8 @@ module.exports = {
 
     updateTodo: async (req, res) => {
         const todo = await Todo.findOne({ userId: req.user, _id: req.params.id }, req.body);
+
+        console.log('controler', req.body)
 
 
         if (!todo) {

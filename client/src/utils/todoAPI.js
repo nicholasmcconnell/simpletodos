@@ -30,14 +30,16 @@ export default {
             }
         })
     },
-    // updateTodo: function (updateTodo, token) {
-    //     const { title, youTubeUrl, description } = updateTodo;
+    updateTodo: function (updateTodo, token, id) {
 
-    //     return axios.put('/api/todos/' + id, { title, youTubeUrl, description }, {
-    //         headers: {
-    //             'x-auth-token': token
-    //         }
-    //     })
-    // }
+        // console.log('todo api', id)
+        const { title, youTubeUrl, description } = updateTodo;
+
+        return axios.put('/api/todos/' + id, { title, youTubeUrl, description }, {
+            headers: {
+                'x-auth-token': token
+            }
+        })
+    }
 }
 
