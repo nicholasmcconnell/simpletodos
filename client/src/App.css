@@ -79,7 +79,6 @@ body, textarea {
 }
 
 #header .auth-options button {
- 
   background-color: #b43c3c;
   padding: 0 1rem;
   color: #ffffff;
@@ -90,7 +89,6 @@ body, textarea {
   background-color: #b94949;
   /* box-shadow: inset 0px 0px 4px #6d6d6e; */
   /* border-radius: 5px; */
-
 }
 
 /* FORM */
@@ -107,11 +105,7 @@ body, textarea {
   margin-bottom: .2rem;
 }
 
-.form input[type='text'], 
-.form input[type='email'], 
-.form input[type='password'], 
-.form input[type='url'], 
-.form textarea {
+.form input[type='text'], .form input[type='email'], .form input[type='password'], .form input[type='url'], .form textarea {
   width: 100%;
   padding: .3rem;
   border: 1px solid #d3d3d3;
@@ -126,8 +120,7 @@ body, textarea {
   outline: none;
 }
 
-.form input[type='submit'],
-.form input[type='reset'] {
+.form input[type='submit'], .form input[type='reset'] {
   display: block;
   margin: 0 auto;
   margin-bottom: .8rem;
@@ -139,12 +132,13 @@ body, textarea {
   font-size: 1.1rem;
   justify-content: space-between;
 }
-.form input[type='submit']:hover, 
-.form input[type='reset']:hover {
+
+.form input[type='submit']:hover, .form input[type='reset']:hover {
   background-color: #cfe9ce;
   box-shadow: inset 0px 0px 7px #3c90cf;
   outline: none;
 }
+
 .form input:hover {
   /* background-color: #b7ebb7; */
   box-shadow: inset 0px 0px 7px #96a0a8;
@@ -172,8 +166,6 @@ body, textarea {
   outline: none;
 }
 
-
-
 /* CARD */
 
 .card-container {
@@ -188,13 +180,23 @@ body, textarea {
 }
 
 .card-body {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
   /* display: inline-block; */
   /* float: right; */
+  border-radius: 5px;
   margin: 1rem;
   padding: .5rem;
   width: 300px;
   border: 2px solid black;
-  justify-content: flex-end;
+  background-color: rgb(189, 192, 206);
+  position: relative;
+  /* justify-content: flex-end; */
+}
+
+.card-title, .card-description {
+  word-wrap: break-word
 }
 
 .todo-card-button {
@@ -219,7 +221,11 @@ body, textarea {
   display: flex;
   justify-content: space-between 10px;
   align-items: center;
+  margin-top: auto;
+  position: relative;
+  bottom: 0;
 }
+
 .video {
   margin-bottom: .5rem;
 }
@@ -255,6 +261,7 @@ body, textarea {
   justify-content: space-between;
   align-items: center;
 }
+
 .success-notice span {
   margin-left: .5rem;
 }
@@ -266,22 +273,32 @@ body, textarea {
   background-color: #d36262;
   color: #ffffff;
 }
+
 /* MODAL */
 
 /* The Modal (background) */
+
 .modal {
   /* display: none;  */
   /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  padding-top: 100px;
+  /* Location of the box */
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
 }
 
 .display-block {
@@ -293,11 +310,12 @@ body, textarea {
 }
 
 /* Modal Content */
+
 .modal {
   position: fixed;
   top: 0;
   left: 0;
-  width:100%;
+  width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.6);
 }
@@ -305,13 +323,13 @@ body, textarea {
 .modal-main {
   border-radius: 4px;
   padding: 3% 3% 3% 3%;
-  position:fixed;
+  position: fixed;
   background: white;
   width: 75%;
   height: auto;
-  top:50%;
-  left:50%;
-  transform: translate(-50%,-50%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .display-block {
@@ -323,6 +341,7 @@ body, textarea {
 }
 
 /* The Close Button */
+
 .close {
   margin: 1% 2% -2%;
   color: #868686;
@@ -331,8 +350,7 @@ body, textarea {
   font-weight: bold;
 }
 
-.close:hover,
-.close:focus {
+.close:hover, .close:focus {
   color: #000;
   text-decoration: none;
   cursor: pointer;
