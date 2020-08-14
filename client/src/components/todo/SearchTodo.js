@@ -2,10 +2,13 @@ import React, { useEffect, useContext, useState } from 'react';
 import UserContext from '../../context/UserContext';
 import { useHistory, Link } from 'react-router-dom';
 import ErrorNotice from '../misc/ErrorNotice';
+import API from '../../utils/todoAPI';
 
 export default function SearchTodos() {
     const [error, setError] = useState();
-    const [todoSearch, setTodoSearch] = useState();
+    const [todoSearch, setTodoSearch] = useState({
+        search: undefined
+    });
 
     const { userData } = useContext(UserContext);
     const history = useHistory();
@@ -20,10 +23,14 @@ export default function SearchTodos() {
     });
 
     const submit = async (e) => {
+        console.log(todoSearch.search)
         try {
             e.preventDefault();
-            
 
+            await API.searchTodos(todoSearch.search, userData.token)
+                .then(res => {
+                    console.log(res)
+                })
         } catch (err) {
             err.response.data.msg && setError(err.response.data.msg);
         }
@@ -42,7 +49,7 @@ export default function SearchTodos() {
                         id='todo-search'
                         type='text'
                         placeholder='Search your todos'
-                        onChange={e => setTodoSearch(e.target.value)}
+                        onChange={e => setTodoSearch({ search: e.target.value })}
                     />
 
                     <input type='submit' value='Search' />

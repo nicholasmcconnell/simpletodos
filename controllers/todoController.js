@@ -80,9 +80,7 @@ module.exports = {
     },
     searchTodos: async (req, res) => {
         const todo = await Todo.findOne({ userId: req.user });
-
-        console.log('in search control', req.body.search)
-
+        
         if (!todo) {
             return res.status(400).json({ msg: 'No todos found associated with this User.' })
         }
