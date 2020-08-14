@@ -64,7 +64,7 @@ export default function Form(props) {
                         onChange={e => setTitleUpdate(e.target.value)}
                     ></input>
 
-                    <label htmlFor='todo-youtubeurl'>YouTube Desktop Application URL</label>
+                    <label htmlFor='todo-youtubeurl'>YouTube URL</label>
                     <input
                         id='todo-youtubeurl'
                         type='url'

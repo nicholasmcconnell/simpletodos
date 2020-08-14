@@ -31,10 +31,9 @@ export default function CreateTodos() {
         // Send initial state as prop to error and success
         setTodoSuccess(undefined);
         setError(undefined)
-        setTitle(undefined);
-        setYouTubeUrl(undefined);
-        setDescription(undefined);
-
+        setTitle('');
+        setYouTubeUrl('');
+        setDescription('');
     }
 
     const submit = async (e) => {
@@ -87,7 +86,7 @@ export default function CreateTodos() {
                         onChange={e => setTitle(e.target.value)}
                     />
 
-                    <label htmlFor='todo-youtubeurl'>YouTube Desktop Application URL</label>
+                    <label htmlFor='todo-youtubeurl'>YouTube URL</label>
                     <input
                         id='todo-youtubeurl'
                         type='url'
@@ -102,7 +101,7 @@ export default function CreateTodos() {
                     />
                     <div className='buttons-div'>
                         <input type='submit' value='Submit'/>
-                        <input type='reset' value='Clear' />
+                        <input type='reset' value='Clear' onClick={setIntialStates}/>
                     </div>
                 </form>
                 <button className='type-button' onClick={() => { history.push('/'); setTodoSuccess(undefined); }} value='Home'>Home</button>
