@@ -34,6 +34,8 @@ export default function CreateTodos() {
         setTitle('');
         setYouTubeUrl('');
         setDescription('');
+
+        console.log(todoSuccess, error, title, youTubeUrl, description)
     }
 
     const submit = async (e) => {
@@ -101,10 +103,10 @@ export default function CreateTodos() {
                     />
                     <div className='buttons-div'>
                         <input type='submit' value='Submit'/>
-                        <input type='reset' value='Clear' onClick={setIntialStates}/>
+                        <input type='reset' value='Clear' onClick={() => { setIntialStates();  window.location.reload(false); }}/>
                     </div>
                 </form>
-                <button className='type-button' onClick={() => { history.push('/'); setTodoSuccess(undefined); }} value='Home'>Home</button>
+                <button className='type-button' onClick={() => { history.push('/'); setTodoSuccess(undefined);}} value='Home'>Home</button>
 
             </div>
         </div>

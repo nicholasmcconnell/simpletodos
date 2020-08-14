@@ -7,10 +7,7 @@ Create todos
     1. button to todo page - little arrow to the right, arrow tot he left goeshome?
     2. view recent todo - renders get todo component
     3. single card
-    4. states need to be reset after successfull todo creation.
-        - hide buttons until success messageis closed - or just route to get todos after successful todo creation
-        - or make clear button reset everything and just be done with it
-Most Recent todo    
+ Most Recent todo    
     1. Component that gets just that.
 
 Delete account
