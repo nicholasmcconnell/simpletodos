@@ -17,7 +17,7 @@ router.route('/:id')
 router.route('/:id')
     .put(auth, todoController.updateTodo)
 
-router.route('/search/:search')
+router.route('/search')
     .post(auth, todoController.searchTodos)
 
 module.exports = router;

@@ -81,9 +81,19 @@ module.exports = {
     searchTodos: async (req, res) => {
         const todo = await Todo.findOne({ userId: req.user });
 
+        console.log('in search control', req.body.search)
+
         if (!todo) {
             return res.status(400).json({ msg: 'No todos found associated with this User.' })
         }
+
+        db.Todo
+            .find({ userId: req.user, $text: { $search: req.body.search } }, { useFindAndModify: false })
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err));
+
+        // db.collection.find( { $text: { $search: "java coffee" } } )
+        // db.supplies.runCommand("text", {search: "printer ink".split(" ").map(str => "\""+str+"\"").join(' ')})
 
     }
 

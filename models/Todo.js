@@ -24,6 +24,10 @@ const todoSchema = new Schema({
     }
 })
 
+// todoSchema.index({ title: 'text', description: 'text', tags: 'text' });
+// const Todo = mongoose.model('Todo', todoSchema);
+// Todo.createIndexes();
+
 const Todo = mongoose.model('Todo', todoSchema);
 
 module.exports = Todo;
