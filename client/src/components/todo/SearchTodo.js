@@ -3,9 +3,11 @@ import UserContext from '../../context/UserContext';
 import { useHistory, Link } from 'react-router-dom';
 import ErrorNotice from '../misc/ErrorNotice';
 import API from '../../utils/todoAPI';
+import Card from '../layout/Card';
 
 export default function SearchTodos() {
-    const [error, setError] = useState();
+    const [error, setError] = useState(undefined);
+    const [todoList, setTodoList] = useState([]);
     const [todoSearch, setTodoSearch] = useState({
         search: undefined
     });
@@ -29,13 +31,53 @@ export default function SearchTodos() {
 
             await API.searchTodos(todoSearch.search, userData.token)
                 .then(res => {
-                    console.log(res)
+                    setTodoList(res.data)
+                    console.log(res.data)
+                    console.log(todoList)
                 })
         } catch (err) {
+            // console.log('err in serach submit', err)
             err.response.data.msg && setError(err.response.data.msg);
         }
-
     }
+
+    const deleteTodos = async (id) => {
+        try {
+            await API.deleteTodos(userData.token, id)
+                .then(async () => {
+                    await API.getTodos(userData.token)
+                        .then(res => {
+                            setTodoList(res.data)
+                        })
+                        .catch(err => {
+                            if (todoList.length >= 1) {
+                                setTodoList([]);
+                                (err.response.data.msg && setError(err.response.data.msg))
+                            }
+                        })
+                })
+                .catch(err =>
+                    (err.response.data.msg && setError(err.response.data.msg))
+                )
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
+    const getTodos = async () => {
+        try {
+            await API.getTodos(userData.token)
+                .then(res => {
+                    setTodoList(res.data)
+                })
+                .catch(err =>
+                    (err.response.data.msg && setError(err.response.data.msg))
+                )
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
     return (
 
         <div className='page'>
@@ -51,9 +93,34 @@ export default function SearchTodos() {
                         placeholder='Search your todos'
                         onChange={e => setTodoSearch({ search: e.target.value })}
                     />
-
-                    <input type='submit' value='Search' />
+                    <div className='buttons-div'>
+                        <input type='submit' value='Submit' />
+                        <input type='reset' value='Clear'
+                        // onClick={() => { setIntialStates();  window.location.reload(false); }}
+                        />
+                    </div>
                 </form>
+
+                {error && <ErrorNotice
+                    message={error}
+                    clearError={setError(undefined)}
+                />}
+
+                <div className='card-container'>
+                    {todoList.length ? todoList.map(todo =>
+                        <Card
+                            id={todo._id}
+                            todoList={todo}
+                            key={todo._id}
+                            deleteTodos={deleteTodos}
+                            getTodos={getTodos}
+                        />
+
+                    ) :
+                        <p></p>
+
+                    }
+                </div>
                 <Link to='/'>
                     <button className='type-button' value='Home'>Home</button>
                 </Link>

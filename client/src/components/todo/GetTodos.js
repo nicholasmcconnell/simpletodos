@@ -8,7 +8,7 @@ import ErrorNotice from '../misc/ErrorNotice';
 
 export default function GetTodos() {
     const { userData } = useContext(UserContext);
-    const [todoList, setTodoList] = useState([]);
+    const [todoList, setTodoList] = useState();
     const [error, setError] = useState();
     // const [toggle, setToggle] = useEffect('');
 
