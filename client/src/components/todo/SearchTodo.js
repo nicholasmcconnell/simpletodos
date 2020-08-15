@@ -33,17 +33,15 @@ export default function SearchTodos() {
                 .then(res => {
                     setTodoList(res.data)
                     // console.log(res.data)
-
-                    // // console.log(res.data)
-                    // // console.log(todoList.length)
-                    // if (!res.data) {
-                    //     setTodoList([]);
-                    //     (setError('No matches!  Do you need more to-do....get it?'))
-                    // }
+                    // console.log(todoList.length)
+                    if (todoList.length > 1) {
+                        setTodoList([]);
+                        (setError('No matches!  Do you need more to-do....get it?'))
+                    }
                 })
         } catch (err) {
             console.log(err)
-            // err.response.data.msg && setError('No matches!  Do you need more to-do....get it?');
+            err.response.data.msg && setError('No matches!  Do you need more to-do....get it?');
         }
     }
 
@@ -62,6 +60,7 @@ export default function SearchTodos() {
                             }
 
                             (err.response.data.msg && setError(err.response.data.msg))
+
                         })
                 })
                 .catch(err =>
@@ -109,9 +108,10 @@ export default function SearchTodos() {
                     </div>
                 </form>
 
-                {error && (
-                    <ErrorNotice message={error} clearError={() => setError(undefined)} />
-                )}
+                {error && <ErrorNotice
+                    message={error}
+                    clearError={setError(undefined)}
+                />}
 
                 <div className='card-container'>
                     {todoList.length ? todoList.map(todo =>
