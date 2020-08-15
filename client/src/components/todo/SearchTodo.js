@@ -32,12 +32,18 @@ export default function SearchTodos() {
             await API.searchTodos(todoSearch.search, userData.token)
                 .then(res => {
                     setTodoList(res.data)
-                    console.log(res.data)
-                    console.log(todoList)
+                    // console.log(res.data)
+
+                    // // console.log(res.data)
+                    // // console.log(todoList.length)
+                    // if (!res.data) {
+                    //     setTodoList([]);
+                    //     (setError('No matches!  Do you need more to-do....get it?'))
+                    // }
                 })
         } catch (err) {
-            // console.log('err in serach submit', err)
-            err.response.data.msg && setError(err.response.data.msg);
+            console.log(err)
+            // err.response.data.msg && setError('No matches!  Do you need more to-do....get it?');
         }
     }
 
@@ -54,6 +60,8 @@ export default function SearchTodos() {
                                 setTodoList([]);
                                 (err.response.data.msg && setError(err.response.data.msg))
                             }
+
+                            (err.response.data.msg && setError(err.response.data.msg))
                         })
                 })
                 .catch(err =>
@@ -101,10 +109,9 @@ export default function SearchTodos() {
                     </div>
                 </form>
 
-                {error && <ErrorNotice
-                    message={error}
-                    clearError={setError(undefined)}
-                />}
+                {error && (
+                    <ErrorNotice message={error} clearError={() => setError(undefined)} />
+                )}
 
                 <div className='card-container'>
                     {todoList.length ? todoList.map(todo =>
