@@ -36,7 +36,7 @@ export default function SearchTodos() {
                     console.log(todoList)
                 })
         } catch (err) {
-            // console`.log('err in serach submit', err)
+            // console.log('err in serach submit', err)
             err.response.data.msg && setError(err.response.data.msg);
         }
     }
