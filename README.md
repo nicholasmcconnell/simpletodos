@@ -1,10 +1,21 @@
 # Todo's!
 ___
 
-## General info
-A MERN stack application where user's may register/login/logout and create, view, update, and delete todos!
+## Overview
+A MERN stack application where user's register/login/logout of an account and create, view, update, search and delete their Todos!  All REST API routes are authorized and authenticated via JSON Web Tokens (JWT's).
 
-** Project is in process.  Todo search function not fully implemented.
+When users create a todo, they enter a title, description, and YouTube URL associated with their todo.  Each todo is then accesible via the create todo page where they can be viewed, updated, or deleted.  
+
+Upon a succesfull key word or phrase search, matching todo's are displayed on the search page where they can also be viewed, edited, and deleted.
+
+To demo this application: 
+
+1. Vist the deployed link [here](https://nmcconnell-todo.herokuapp.com/) 
+2. Login with Email: user@user.com and Password: useruser.  
+3. Or, register an account and create your own todos! 
+___
+
+## Demonstration:
 ___
 
 ## Links:
@@ -17,6 +28,7 @@ ___
 ## Technologies
 * ReactJS
 * React-router-dom
+* JSON Web Tokens (JWT's)
 * axios
 * express
 * CSS3
@@ -26,7 +38,11 @@ ___
 ## Setup
 To run this project locally using npm cli:
 ```
+From the root directory:
 $ type: npm install && npm start
+$ type: cd client && npm install
+$ type: cd..
+$ type: npm run dev
 $ Or See deployed website.  
 ```
 ___
