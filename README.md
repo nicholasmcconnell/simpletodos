@@ -1,5 +1,5 @@
 # Todo's!
-___
+
 
 ## General info
 A MERN stack application where user's may register/login/logout and create, view, update, and delete todos!
