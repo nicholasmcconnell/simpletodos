@@ -92,6 +92,10 @@ export default function SearchTodos() {
 
                 <h2>Search Todos</h2>
 
+                {error && (
+                    <ErrorNotice message={error} clearError={() => setError(undefined)} />
+                )}
+
                 <form className='form' onSubmit={submit}>
                     <label htmlFor='search-term'>Search:</label>
                     <input
@@ -107,11 +111,6 @@ export default function SearchTodos() {
                         />
                     </div>
                 </form>
-
-                {error && <ErrorNotice
-                    message={error}
-                    clearError={setError(undefined)}
-                />}
 
                 <div className='card-container'>
                     {todoList.length ? todoList.map(todo =>
