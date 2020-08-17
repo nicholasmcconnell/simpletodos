@@ -13,6 +13,8 @@ To demo this application:
 1. Vist the deployed link [here](https://nmcconnell-todo.herokuapp.com/) 
 2. Login with Email: user@user.com and Password: useruser.  
 3. Or, register an account and create your own todos! 
+
+Future development will improve search functionality with the implmentation of tags at todo creation.
 ___
 
 ## Demonstration:
