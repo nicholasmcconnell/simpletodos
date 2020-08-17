@@ -9,9 +9,10 @@ When users create a todo, they enter a title, description, and YouTube URL assoc
 Upon a succesfull key word or phrase search, matching todo's are displayed on the search page where they can also be viewed, edited, and deleted.
 
 To demo this application: 
-	* 1. Vist the deployed link [here](https://nmcconnell-todo.herokuapp.com/) 
-	* 2. Login with Email: user@user.com and Password: useruser.  
-	* 3. Or, register an account and create your own todos! 
+
+	1. Vist the deployed link [here](https://nmcconnell-todo.herokuapp.com/) 
+	2. Login with Email: user@user.com and Password: useruser.  
+	3. Or, register an account and create your own todos! 
 ___
 
 ## Demonstration:
