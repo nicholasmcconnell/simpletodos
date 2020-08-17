@@ -28,20 +28,20 @@ export default function SearchTodos() {
         console.log(todoSearch.search)
         try {
             e.preventDefault();
+            setError(undefined)
 
             await API.searchTodos(todoSearch.search, userData.token)
                 .then(res => {
-                    setTodoList(res.data)
-                    // console.log(res.data)
-                    // console.log(todoList.length)
-                    if (todoList.length > 1) {
-                        setTodoList([]);
-                        (setError('No matches!  Do you need more to-do....get it?'))
+                    if (res.data.length === 0) {
+                        (setError('No matches!  Do you need more to-do...?'))
+                    } else {
+
+                        setTodoList(res.data)
                     }
                 })
         } catch (err) {
             console.log(err)
-            err.response.data.msg && setError('No matches!  Do you need more to-do....get it?');
+            err.response.data.msg && setError('No matches!  Do you need more to-do...?');
         }
     }
 

@@ -85,10 +85,14 @@ module.exports = {
             return res.status(400).json({ msg: 'No todos found associated with this User.' })
         }
 
+        if (!req.body.search) {
+            return res.status(400).json({ msg: 'No todos found associated with this User.' })
+        }
+
         db.Todo
             .find({ userId: req.user, $text: { $search: req.body.search } }, { useFindAndModify: false })
             .then(dbModel => res.json(dbModel))
-            .catch(err => res.status(422).json(err));
+            .catch(err => res.status(422).json('hi', err));
 
         // db.collection.find( { $text: { $search: "java coffee" } } )
         // db.supplies.runCommand("text", {search: "printer ink".split(" ").map(str => "\""+str+"\"").join(' ')})
