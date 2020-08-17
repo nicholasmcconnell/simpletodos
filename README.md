@@ -4,7 +4,7 @@ ___
 ## General info
 A MERN stack application where user's may register/login/logout and create, view, update, and delete todos!
 
-** Project is in process.  Todo search and edit features are not fully implemented..
+** Project is in process.  Todo search function not fully implemented.
 ___
 
 ## Links:
