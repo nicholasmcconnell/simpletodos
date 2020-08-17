@@ -16,6 +16,8 @@ To demo this application:
 ___
 
 ## Demonstration:
+
+![image](GIF/todos.gif)
 ___
 
 ## Links:
