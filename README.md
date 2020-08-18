@@ -14,7 +14,7 @@ To demo this application:
 2. Login with Email: user@user.com and Password: useruser.  
 3. Or, register an account and create your own todos! 
 
-Future development will improve search functionality with the implementation of tags at todo creation.
+Future development will improve search functionality with the implementation of tags at todo creation and account for other YouTube url configurations.
 ___
 
 ## Demonstration:
