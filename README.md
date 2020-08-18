@@ -4,7 +4,7 @@ ___
 ## Overview
 A MERN stack application where user's register/login/logout of an account and create, view, update, search and delete their Todos!  All REST API routes are authorized and authenticated via JSON Web Tokens (JWT's).
 
-When users create a todo, they enter a title, description, and YouTube URL associated with their todo.  Each todo is then accesible via the create todo page where they can be viewed, updated, or deleted.  
+When users create a todo, they enter a title, description, and YouTube URL associated with their todo.  Each todo is then accesible via the get-todo page where they can be viewed, updated, or deleted.  
 
 Upon a succesfull key word or phrase search, matching todo's are displayed on the search page where they can also be viewed, edited, and deleted.
 
