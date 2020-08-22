@@ -20,8 +20,6 @@ function App() {
     user: undefined
   })
 
-  // const [todoSuccess, setTodoSuccess ] = useState();
-
   const history = useHistory();
 
   useEffect(() => {
