@@ -6,3 +6,7 @@
         - make it part of search
     - get video based on title and categories
         eventualy search via description too
+
+
+3. WHAT KIND OF APP??
+    - 
