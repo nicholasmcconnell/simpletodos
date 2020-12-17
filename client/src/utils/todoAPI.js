@@ -45,8 +45,13 @@ export default {
             }
         })
     },
-    searchYoutube: function (title, token){
-        return axios.post('/api/todos/searchyoutube')
+    searchYoutube: function (search, token){
+        ('intodoapi search youtube')
+        return axios.post('/api/todos/searchyoutube', { search }), {
+            headers: {
+                'x-auth-token' : token
+            }
+        }
     }
 }
 

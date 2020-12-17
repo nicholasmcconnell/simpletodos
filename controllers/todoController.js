@@ -99,7 +99,8 @@ module.exports = {
 
     },
     searchYoutube: async (req, res) => {
-        
+        console.log('Controller hit - youtube')
+        return res.status(400).json({msg: "search youtube response"})
     }
 
 }
