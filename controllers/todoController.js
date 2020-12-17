@@ -97,6 +97,9 @@ module.exports = {
         // db.collection.find( { $text: { $search: "java coffee" } } )
         // db.supplies.runCommand("text", {search: "printer ink".split(" ").map(str => "\""+str+"\"").join(' ')})
 
+    },
+    searchYoutube: async (req, res) => {
+        
     }
 
 }
