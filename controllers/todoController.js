@@ -1,4 +1,6 @@
 const db = require('../models');
+const axios = require('axios');
+
 const { Todo } = require('../models');
 
 module.exports = {
@@ -80,7 +82,7 @@ module.exports = {
     },
     searchTodos: async (req, res) => {
         const todo = await Todo.findOne({ userId: req.user });
-        
+
         if (!todo) {
             return res.status(400).json({ msg: 'No todos found associated with this User.' })
         }
@@ -97,6 +99,16 @@ module.exports = {
         // db.collection.find( { $text: { $search: "java coffee" } } )
         // db.supplies.runCommand("text", {search: "printer ink".split(" ").map(str => "\""+str+"\"").join(' ')})
 
+    },
+    searchYoutube: async (req, res) => {
+        try {
+            res = await axios.get('https://www.googleapis.com/youtube/v3/theburgershow');
+            return res;
+        } catch (err) {
+            console.log()
+            console.log("yuuuup - its an error", err)
+
+        }
     }
 
 }

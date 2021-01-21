@@ -20,5 +20,8 @@ router.route('/:id')
 router.route('/search')
     .post(auth, todoController.searchTodos)
 
+router.route('/searchyoutube')
+    .post(auth, todoController.searchYoutube)
+
 module.exports = router;
 

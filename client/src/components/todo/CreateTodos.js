@@ -44,8 +44,11 @@ export default function CreateTodos() {
             const newTodo = { title, youTubeUrl, description }
 
             await API.createTodos(newTodo, userData.token)
-                .then(res => setTodoSuccess(`Success, ${userData.user.displayName}!  Your Todo has been saved.`))
-                // .then API.get
+                .then(res => {
+                    setTodoSuccess(`Success, ${userData.user.displayName}!  Your Todo has been saved.`)
+                    history.push('/gettodos')
+                })
+
                 .catch(err =>
                     (err.response.data.msg && setError(err.response.data.msg))
                 )
@@ -102,11 +105,11 @@ export default function CreateTodos() {
                         onChange={e => setDescription(e.target.value)}
                     />
                     <div className='buttons-div'>
-                        <input type='submit' value='Submit'/>
-                        <input type='reset' value='Clear' onClick={() => { setIntialStates();  window.location.reload(false); }}/>
+                        <input type='submit' value='Submit' />
+                        <input type='reset' value='Clear' onClick={() => { setIntialStates(); window.location.reload(false); }} />
                     </div>
                 </form>
-                <button className='type-button' onClick={() => { history.push('/'); setTodoSuccess(undefined);}} value='Home'>Home</button>
+                <button className='type-button' onClick={() => { history.push('/'); setTodoSuccess(undefined); }} value='Home'>Home</button>
 
             </div>
         </div>
