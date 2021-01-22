@@ -26,6 +26,8 @@ export default function GetTodos() {
     useEffect(() => {
         API.getTodos(userData.token)
             .then(res => {
+                console.log(res.data)
+
                 setTodoList(res.data)
             })
             .catch(err =>
@@ -36,9 +38,9 @@ export default function GetTodos() {
     const getTodos = async () => {
         try {
             await API.getTodos(userData.token)
-                .then(res =>
+                .then(res =>{
                     setTodoList(res.data)
-                )
+                })
                 .catch(err =>
                     (err.response.data.msg && setError(err.response.data.msg))
                 )

@@ -39,12 +39,19 @@ export default {
         })
     },
     searchTodos: function (search, token) {
-        console.log(typeof search)
         return axios.post('/api/todos/search', { search }, {
             headers: {
                 'x-auth-token' : token
             }
         })
+    },
+    searchYoutube: function (search, token){
+        ('intodoapi search youtube')
+        return axios.post('/api/todos/searchyoutube', { search }), {
+            headers: {
+                'x-auth-token' : token
+            }
+        }
     }
 }
 

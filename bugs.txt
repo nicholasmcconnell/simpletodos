@@ -1,0 +1,12 @@
+1. When logging in 
+    - if there are todo's, go to view todo page.
+    - else go to create new todo
+2. API
+    - *** NOT PRIMARY FEATURE TO IMPLIMENT add categories tab to create todo's
+        - make it part of search
+    - get video based on title and categories
+        eventualy search via description too
+
+
+3. WHAT KIND OF APP??
+    - 
