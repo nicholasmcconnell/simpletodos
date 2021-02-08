@@ -91,7 +91,7 @@ export default function CreateTodos() {
                         onChange={e => setTitle(e.target.value)}
                     />
 
-                    <label htmlFor='todo-youtubeurl'>YouTube URL</label>
+                    <label htmlFor='todo-youtubeurl'>YouTube URL (e.g. https://www.youtube.com/watch?v=PkZNo7MFNFg)</label>
                     <input
                         id='todo-youtubeurl'
                         type='url'
