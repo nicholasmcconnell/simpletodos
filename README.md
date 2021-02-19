@@ -1,12 +1,14 @@
-# Todo's!
+# Simple Todo's!
 ___
 
 ## Overview
-A MERN stack application where user's register/login/logout of an account and create, view, update, search and delete their Todos! All REST API routes are authorized and authenticated via JSON Web Tokens (JWT's).
+A MERN stack application for creating, viewing, updating, searching and deleting user Todos. All REST API routes are authorized and authenticated via JSON Web Tokens (JWT's) and  login credentials.
 
-When users create a todo, they enter a title, description, and YouTube URL associated with their todo. Each todo is then accessible via the get-todo page where they can be viewed, updated, or deleted.
+When users create a todo, they enter a title, description, and YouTube URL. Each todo is then accessible via the get-todo page where they can be viewed, updated, or deleted.
 
-Upon a successful key word or phrase search, matching todo's are displayed on the search page where they can also be viewed, edited, and deleted.
+A successful key word or phrase search renders todos to the search page to be viewed, edited, and deleted.
+
+Future development will display stores and services helpful to completing user todo's via Google Maps Platform.
 
 To demo this application: 
 
@@ -14,7 +16,6 @@ To demo this application:
 2. Login with Email: user@user.com and Password: useruser.  
 3. Or, register an account and create your own todos! 
 
-Future development will improve search functionality with the implementation of tags at todo creation and account for other YouTube url configurations.
 ___
 
 ## Demonstration:
@@ -31,12 +32,13 @@ ___
 
 ## Technologies
 * ReactJS
-* React-router-dom
+* ES6 Javascript
 * JSON Web Tokens (JWT's)
-* axios
-* express
-* CSS3
-* ES6
+* Axios
+* Express
+* MongoDB
+* CSS
+
 
 	
 ## Setup
