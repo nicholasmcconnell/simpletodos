@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 5000;
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
-  }
+}
 
 //set up routes
 app.use(routes);
@@ -29,17 +29,17 @@ app.use(routes);
 //|| 
 mongoose.connect(
     ("mongodb://localhost/todos" || process.env.MONGODB_URI), {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-        useCreateIndex: true,
-    }, (err) => {
-        if(err){
-            console.log(err);
-            throw err;
-        } else{ 
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+}, (err) => {
+    if (err) {
+        console.log(err);
+        throw err;
+    } else {
         (console.log("Connection to database established"));
-        }
-    })
+    }
+})
 
 app.listen(PORT, () => console.log(`The server has started on port: ${PORT}`));
 
