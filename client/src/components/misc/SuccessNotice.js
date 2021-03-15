@@ -1,11 +1,11 @@
 import React from 'react'
 
-export default function SuccessNotice(props) {
+export default function SuccessNotice({ message, clearSuccess }) {
     return (
         <div>
             <div className='success-notice'>
-                <span>{props.message}</span>
-                <button onClick={props.clearSuccess}>X</button>
+                <span>{message}</span>
+                <button onClick={clearSuccess}>X</button>
             </div>
         </div>
     )

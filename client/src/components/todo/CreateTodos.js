@@ -4,9 +4,7 @@ import UserContext from '../../context/UserContext';
 import API from '../../utils/todoAPI';
 import ErrorNotice from '../misc/ErrorNotice';
 import SuccessNotice from '../misc/SuccessNotice';
-// import SuccessContext from '../../context/SuccessContext';
-import Form from '../layout/UpdateForm';
-import Card from '../../components/layout/Card';
+import OptionButton from './OptionButton';
 
 export default function CreateTodos() {
 
@@ -27,17 +25,6 @@ export default function CreateTodos() {
         }
     }, []);
 
-    const setIntialStates = () => {
-        // Send initial state as prop to error and success
-        setTodoSuccess(undefined);
-        setError(undefined)
-        setTitle('');
-        setYouTubeUrl('');
-        setDescription('');
-
-        console.log(todoSuccess, error, title, youTubeUrl, description)
-    }
-
     const submit = async (e) => {
         e.preventDefault();
         try {
@@ -56,7 +43,6 @@ export default function CreateTodos() {
         } catch (err) {
             console.log("Something when wrong")
         }
-        // setIntialStates();
     }
 
     return (
@@ -74,14 +60,6 @@ export default function CreateTodos() {
                     }
                     } />
                 )}
-
-                {/* <Form
-                    onSubmit={submit.bind()}
-                    // setTitle={() => setTitle}
-                    // setYouTubeUrl={setYouTubeUrl}
-                    // setDescription={setDescription}
-
-                /> */}
 
                 <form className='form' onSubmit={submit}>
                     <label htmlFor='todo-title'>Title</label>
@@ -106,10 +84,10 @@ export default function CreateTodos() {
                     />
                     <div className='buttons-div'>
                         <input type='submit' value='Submit' />
-                        <input type='reset' value='Clear' onClick={() => { setIntialStates(); window.location.reload(false); }} />
+                        <input type='reset' value='Clear' />
                     </div>
                 </form>
-                <button className='type-button' onClick={() => { history.push('/'); setTodoSuccess(undefined); }} value='Home'>Home</button>
+                <OptionButton className='type-button' value='Home' name='Home' onClick={() => { history.push('/'); setTodoSuccess(undefined); }}></OptionButton>
 
             </div>
         </div>

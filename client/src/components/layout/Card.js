@@ -18,8 +18,6 @@ export default function Card({ deleteTodos, getTodos, todoList, todoList: { titl
 
     return (
         <>
-            {/* {toggle && <Modal />} */}
-
             <div className='card-body'>
                 <h3 className='card-title'>{title}</h3>
                 <p className='card-description'>{description}</p>

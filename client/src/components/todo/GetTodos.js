@@ -1,7 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { useHistory, Link } from 'react-router-dom';
 import API from '../../utils/todoAPI';
-import Axios from 'axios';
 import UserContext from '../../context/UserContext';
 import Card from '../layout/Card'
 import ErrorNotice from '../misc/ErrorNotice';
@@ -11,8 +10,6 @@ export default function GetTodos() {
     const { userData } = useContext(UserContext);
     const [todoList, setTodoList] = useState([]);
     const [error, setError] = useState();
-    // const [toggle, setToggle] = useEffect('');
-
 
     const history = useHistory();
 
