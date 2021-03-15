@@ -21,12 +21,6 @@ if (process.env.NODE_ENV === "production") {
 //set up routes
 app.use(routes);
 
-
-// set up 
-//ADD BACK IN ONCE TIED TO HEROKU DATABASE
-// process.env.MONGODB_URI ||
-//"mongodb://localhost/todos" || 
-//|| 
 mongoose.connect(
     (process.env.MONGODB_URI || "mongodb://localhost/todos"), {
     useNewUrlParser: true,
