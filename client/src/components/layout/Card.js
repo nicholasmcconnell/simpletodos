@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import Modal from '../layout/Modal';
 
 export default function Card({ deleteTodos, getTodos, todoList, todoList: { title, youTubeUrl, description } }) {
-    // const { title, youTubeUrl } = props.todoList;
-
     const [toggle, setToggle] = useState(false);
     const [show, setShow] = useState(false)
 
@@ -15,7 +13,6 @@ export default function Card({ deleteTodos, getTodos, todoList, todoList: { titl
         setShow(false)
     }
 
-    // const youTubeUrl = props.todoList.youTubeUrl;
     const urlArray = (youTubeUrl.split(youTubeUrl.charAt(youTubeUrl.length - 12)))
     const youTubeId = urlArray[urlArray.length - 1];
 
