@@ -1,17 +1,15 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { useHistory, Link } from 'react-router-dom';
 import API from '../../utils/todoAPI';
-import Axios from 'axios';
 import UserContext from '../../context/UserContext';
 import Card from '../layout/Card'
 import ErrorNotice from '../misc/ErrorNotice';
+import OptionButton from './OptionButton';
 
 export default function GetTodos() {
     const { userData } = useContext(UserContext);
     const [todoList, setTodoList] = useState([]);
     const [error, setError] = useState();
-    // const [toggle, setToggle] = useEffect('');
-
 
     const history = useHistory();
 
@@ -26,8 +24,6 @@ export default function GetTodos() {
     useEffect(() => {
         API.getTodos(userData.token)
             .then(res => {
-                console.log(res.data)
-
                 setTodoList(res.data)
             })
             .catch(err =>
@@ -38,7 +34,7 @@ export default function GetTodos() {
     const getTodos = async () => {
         try {
             await API.getTodos(userData.token)
-                .then(res =>{
+                .then(res => {
                     setTodoList(res.data)
                 })
                 .catch(err =>
@@ -94,7 +90,7 @@ export default function GetTodos() {
                     ) : <p></p>}
                 </div>
                 <Link to='/'>
-                    <button className='type-button' value='Home'>Home</button>
+                    <OptionButton className='type-button' value='Home' name='Home' />
                 </Link>
             </div>
         </div>

@@ -4,22 +4,17 @@ import API from '../../utils/todoAPI';
 import ErrorNotice from '../misc/ErrorNotice';
 import SuccessNotice from '../misc/SuccessNotice';
 
-export default function Form(props) {
+export default function Form({ todoList, setTodoSuccess, todoSuccess }) {
 
-    const { _id, title, youTubeUrl, description } = props.props.todoList;
+    const { _id, title, youTubeUrl, description } = todoList;
 
     const [titleUpdate, setTitleUpdate] = useState();
     const [youTubeUrlUpdate, setYouTubeUrlUpdate] = useState();
     const [descriptionUpdate, setDescriptionUpdate] = useState();
     const [error, setError] = useState();
 
-    const { userData } = useContext(UserContext);
-
-
-    // useEffect(() => {
-    //     setTitleUpdate(title);
-
-    // })
+    const { userData, userData: { user }, userData: { user: { displayName } }
+    } = useContext(UserContext);
 
     const submit = async (e) => {
         e.preventDefault();
@@ -32,7 +27,7 @@ export default function Form(props) {
             }
 
             await API.updateTodo(updateTodo, userData.token, _id)
-                .then(res => props.setTodoSuccess(`Success, ${userData.user.displayName}!  Your Todo has been saved.`))
+                .then(res => setTodoSuccess(`Success, ${displayName}!  Your Todo has been saved.`))
                 .catch(err =>
                     (err.response.data.msg && setError(err.response.data.msg))
                 )
@@ -49,9 +44,9 @@ export default function Form(props) {
                     <ErrorNotice message={error} clearError={() => setError(undefined)} />
                 )}
 
-                {props.todoSuccess && (
-                    <SuccessNotice message={props.todoSuccess} clearSuccess={() => {
-                        props.setTodoSuccess(undefined);
+                {todoSuccess && (
+                    <SuccessNotice message={todoSuccess} clearSuccess={() => {
+                        setTodoSuccess(undefined);
                     }
                     } />
                 )}
