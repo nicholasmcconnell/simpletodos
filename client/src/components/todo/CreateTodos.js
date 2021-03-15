@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from 'react'
 import { useHistory, Link } from 'react-router-dom';
 import UserContext from '../../context/UserContext';
 import API from '../../utils/todoAPI';
+import Dropdown from '../layout/Dropdown';
 import ErrorNotice from '../misc/ErrorNotice';
 import SuccessNotice from '../misc/SuccessNotice';
 import OptionButton from './OptionButton';
@@ -12,6 +13,7 @@ export default function CreateTodos() {
     const [youTubeUrl, setYouTubeUrl] = useState();
     const [description, setDescription] = useState();
     const [error, setError] = useState();
+    const [category, setCategory] = useState();
     const [todoSuccess, setTodoSuccess] = useState();
 
     const { userData } = useContext(UserContext);
@@ -62,6 +64,14 @@ export default function CreateTodos() {
                 )}
 
                 <form className='form' onSubmit={submit}>
+                    <label className="category" for="category">Category</label>
+                    <select name="category">
+                        <option disabled selected>Select Category</option>
+                        <option value="Purchase">Run</option>
+                        <option value="Repair">Walk</option>
+                        <option value="Order">Jog</option>
+                        <option value="Clean">Swim</option>
+                    </select>
                     <label htmlFor='todo-title'>Title</label>
                     <input
                         id='todo-title'

@@ -1,4 +1,4 @@
-1. When logging in 
+PU1. When logging in 
     - if there are todo's, go to view todo page.
     - else go to create new todo
 2. API
