@@ -20,9 +20,9 @@ if (process.env.NODE_ENV === "production") {
 
 //set up routes
 app.use(routes);
-
+// process.env.MONGODB_URI ||
 mongoose.connect(
-    (process.env.MONGODB_URI || "mongodb://localhost/todos"), {
+    ("mongodb://localhost/todos"), {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,

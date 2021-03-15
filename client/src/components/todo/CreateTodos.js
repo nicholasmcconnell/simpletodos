@@ -30,7 +30,8 @@ export default function CreateTodos() {
     const submit = async (e) => {
         e.preventDefault();
         try {
-            const newTodo = { title, youTubeUrl, description }
+            console.log(category)
+            const newTodo = { title, youTubeUrl, description, category }
 
             await API.createTodos(newTodo, userData.token)
                 .then(res => {
@@ -65,12 +66,12 @@ export default function CreateTodos() {
 
                 <form className='form' onSubmit={submit}>
                     <label className="category" for="category">Category</label>
-                    <select name="category">
+                    <select name="category" onChange={e => setCategory(e.target.value)}>
                         <option disabled selected>Select Category</option>
-                        <option value="Purchase">Run</option>
-                        <option value="Repair">Walk</option>
-                        <option value="Order">Jog</option>
-                        <option value="Clean">Swim</option>
+                        <option value="Purchase">Purchase</option>
+                        <option value="Repair">Repair</option>
+                        <option value="Order">Order</option>
+                        <option value="Clean">Clean</option>
                     </select>
                     <label htmlFor='todo-title'>Title</label>
                     <input

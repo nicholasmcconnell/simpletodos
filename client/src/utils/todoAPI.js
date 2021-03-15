@@ -20,8 +20,8 @@ export default {
         })
     },
     createTodos: function (newTodo, token) {
-        const { title, youTubeUrl, description } = newTodo;
-        return axios.post('/api/todos/', { title, youTubeUrl, description }, {
+        const { title, youTubeUrl, description, category } = newTodo;
+        return axios.post('/api/todos/', { title, youTubeUrl, description, category }, {
             headers: {
                 'x-auth-token': token
             }
@@ -41,15 +41,15 @@ export default {
     searchTodos: function (search, token) {
         return axios.post('/api/todos/search', { search }, {
             headers: {
-                'x-auth-token' : token
+                'x-auth-token': token
             }
         })
     },
-    searchYoutube: function (search, token){
+    searchYoutube: function (search, token) {
         ('intodoapi search youtube')
         return axios.post('/api/todos/searchyoutube', { search }), {
             headers: {
-                'x-auth-token' : token
+                'x-auth-token': token
             }
         }
     }
