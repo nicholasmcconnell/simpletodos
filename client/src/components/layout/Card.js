@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import Modal from '../layout/Modal';
 
-export default function Card(props) {
+export default function Card({ deleteTodos, getTodos, todoList, todoList: { title, youTubeUrl, description } }) {
+    // const { title, youTubeUrl } = props.todoList;
 
     const [toggle, setToggle] = useState(false);
     const [show, setShow] = useState(false)
@@ -14,17 +15,17 @@ export default function Card(props) {
         setShow(false)
     }
 
-    const youTubeURL = props.todoList.youTubeUrl;
-    const urlArray = (youTubeURL.split(youTubeURL.charAt(youTubeURL.length - 12)))
-    const youTubeId = urlArray[urlArray.length-1];
+    // const youTubeUrl = props.todoList.youTubeUrl;
+    const urlArray = (youTubeUrl.split(youTubeUrl.charAt(youTubeUrl.length - 12)))
+    const youTubeId = urlArray[urlArray.length - 1];
 
     return (
         <>
             {/* {toggle && <Modal />} */}
 
             <div className='card-body'>
-                <h3 className='card-title'>{props.todoList.title}</h3>
-                <p className='card-description'>{props.todoList.description}</p>
+                <h3 className='card-title'>{title}</h3>
+                <p className='card-description'>{description}</p>
                 <div
                     className="video"
                     style={{
@@ -54,13 +55,13 @@ export default function Card(props) {
                     <Modal
                         show={show}
                         handleClose={hideModal}
-                        todoList={props.todoList}
-                        getTodos={props.getTodos}
+                        todoList={todoList}
+                        getTodos={getTodos}
                     >
                     </Modal>
 
                     <button className='todo-card-button' onClick={showModal}>Edit</button>
-                    <button className='todo-card-button' onClick={() => props.deleteTodos(props.todoList._id)}>Delete</button>
+                    <button className='todo-card-button' onClick={() => deleteTodos(todoList._id)}>Delete</button>
                 </div>
             </div>
         </>
