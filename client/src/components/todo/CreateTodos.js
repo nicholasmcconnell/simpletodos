@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from 'react'
 import { useHistory, Link } from 'react-router-dom';
 import UserContext from '../../context/UserContext';
 import API from '../../utils/todoAPI';
+import Dropdown from '../layout/Dropdown';
 import ErrorNotice from '../misc/ErrorNotice';
 import SuccessNotice from '../misc/SuccessNotice';
 import OptionButton from './OptionButton';
@@ -12,6 +13,7 @@ export default function CreateTodos() {
     const [youTubeUrl, setYouTubeUrl] = useState();
     const [description, setDescription] = useState();
     const [error, setError] = useState();
+    const [category, setCategory] = useState();
     const [todoSuccess, setTodoSuccess] = useState();
 
     const { userData } = useContext(UserContext);
@@ -28,14 +30,13 @@ export default function CreateTodos() {
     const submit = async (e) => {
         e.preventDefault();
         try {
-            const newTodo = { title, youTubeUrl, description }
+            const newTodo = { title, youTubeUrl, description, category }
 
             await API.createTodos(newTodo, userData.token)
                 .then(res => {
                     setTodoSuccess(`Success, ${userData.user.displayName}!  Your Todo has been saved.`)
                     history.push('/gettodos')
                 })
-
                 .catch(err =>
                     (err.response.data.msg && setError(err.response.data.msg))
                 )
@@ -62,6 +63,14 @@ export default function CreateTodos() {
                 )}
 
                 <form className='form' onSubmit={submit}>
+                    <label className="category" htmlFor="category">Category</label>
+                    <select name="category" onChange={e => setCategory(e.target.value)}>
+                        <option value='category'>Select Category</option>
+                        <option value="Purchase">Purchase</option>
+                        <option value="Repair">Repair</option>
+                        <option value="Order">Order</option>
+                        <option value="Clean">Clean</option>
+                    </select>
                     <label htmlFor='todo-title'>Title</label>
                     <input
                         id='todo-title'

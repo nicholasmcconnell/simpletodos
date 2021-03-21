@@ -14,13 +14,17 @@ const todoSchema = new Schema({
         type: String,
         required: true,
     },
+    category: {
+        type: String,
+        required: true,
+    },
     userId: {
         type: String,
         required: true
     },
-    created_at: { 
+    created_at: {
         type: Date,
-        default: Date.now 
+        default: Date.now
     }
 })
 

@@ -6,11 +6,12 @@ import SuccessNotice from '../misc/SuccessNotice';
 
 export default function Form({ todoList, setTodoSuccess, todoSuccess }) {
 
-    const { _id, title, youTubeUrl, description } = todoList;
+    const { _id, title, youTubeUrl, description, category } = todoList;
 
     const [titleUpdate, setTitleUpdate] = useState();
     const [youTubeUrlUpdate, setYouTubeUrlUpdate] = useState();
     const [descriptionUpdate, setDescriptionUpdate] = useState();
+    const [categoryUpdate, setCategoryUpdate] = useState();
     const [error, setError] = useState();
 
     const { userData, userData: { user }, userData: { user: { displayName } }
@@ -21,9 +22,10 @@ export default function Form({ todoList, setTodoSuccess, todoSuccess }) {
         try {
 
             const updateTodo = {
-                title: !titleUpdate ? description : titleUpdate,
+                title: !titleUpdate ? title : titleUpdate,
                 youTubeUrl: !youTubeUrlUpdate ? youTubeUrl : youTubeUrlUpdate,
-                description: !descriptionUpdate ? description : descriptionUpdate
+                description: !descriptionUpdate ? description : descriptionUpdate,
+                category: !categoryUpdate ? category : categoryUpdate,
             }
 
             await API.updateTodo(updateTodo, userData.token, _id)
@@ -51,6 +53,14 @@ export default function Form({ todoList, setTodoSuccess, todoSuccess }) {
                     } />
                 )}
                 <form className='form' onSubmit={submit}>
+                    <label className="category" htmlFor="category">Category</label>
+                    <select name="category" defaultValue={category} onChange={e => setCategoryUpdate(e.target.value)}>
+                        <option value='category'>Select Category</option>
+                        <option value="Purchase">Purchase</option>
+                        <option value="Repair">Repair</option>
+                        <option value="Order">Order</option>
+                        <option value="Clean">Clean</option>
+                    </select>
                     <label htmlFor='todo-title'>Title</label>
                     <input
                         id='todo-title'

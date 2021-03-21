@@ -50,6 +50,8 @@ function App() {
     checkLoggedIn();
   }, [])
 
+  // useEffect for welcome modal
+
   return (
     <>
       <BrowserRouter>

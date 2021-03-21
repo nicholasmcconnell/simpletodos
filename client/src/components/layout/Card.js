@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import Modal from '../layout/Modal';
+import Modal from './Modal';
+import UpdateForm from './UpdateForm'
 
 export default function Card({ deleteTodos, getTodos, todoList, todoList: { title, youTubeUrl, description } }) {
     const [toggle, setToggle] = useState(false);
-    const [show, setShow] = useState(false)
+    const [show, setShow] = useState(false);
+
 
     const showModal = () => {
         setShow(true)
@@ -53,6 +55,11 @@ export default function Card({ deleteTodos, getTodos, todoList, todoList: { titl
                         todoList={todoList}
                         getTodos={getTodos}
                     >
+                        {/* <UpdateForm
+                            todoList={todoList}
+                            todoSuccess={todoSuccess}
+                            setTodoSuccess={setTodoSuccess}
+                        /> */}
                     </Modal>
 
                     <button className='todo-card-button' onClick={showModal}>Edit</button>
