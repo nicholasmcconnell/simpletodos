@@ -30,7 +30,6 @@ export default function CreateTodos() {
     const submit = async (e) => {
         e.preventDefault();
         try {
-            console.log(category)
             const newTodo = { title, youTubeUrl, description, category }
 
             await API.createTodos(newTodo, userData.token)
@@ -38,7 +37,6 @@ export default function CreateTodos() {
                     setTodoSuccess(`Success, ${userData.user.displayName}!  Your Todo has been saved.`)
                     history.push('/gettodos')
                 })
-
                 .catch(err =>
                     (err.response.data.msg && setError(err.response.data.msg))
                 )
@@ -65,9 +63,9 @@ export default function CreateTodos() {
                 )}
 
                 <form className='form' onSubmit={submit}>
-                    <label className="category" for="category">Category</label>
+                    <label className="category" htmlFor="category">Category</label>
                     <select name="category" onChange={e => setCategory(e.target.value)}>
-                        <option disabled selected>Select Category</option>
+                        <option >Select Category</option>
                         <option value="Purchase">Purchase</option>
                         <option value="Repair">Repair</option>
                         <option value="Order">Order</option>

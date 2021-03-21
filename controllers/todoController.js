@@ -6,11 +6,11 @@ const { Todo } = require('../models');
 module.exports = {
     createTodos: async (req, res) => {
         try {
-            const { title, youTubeUrl, description } = req.body;
+            const { title, youTubeUrl, description, category } = req.body;
 
             // validation
 
-            if (!title || !description || !youTubeUrl) {
+            if (!title || !description || !youTubeUrl || !category) {
                 return res.status(400).json({ msg: 'Not all fields have been entered.' })
             }
 
@@ -18,6 +18,7 @@ module.exports = {
                 title,
                 youTubeUrl,
                 description,
+                category,
                 userId: req.user
             });
 
