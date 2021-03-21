@@ -30,9 +30,9 @@ export default {
     updateTodo: function (updateTodo, token, id) {
 
         // console.log('todo api', id)
-        const { title, youTubeUrl, description } = updateTodo;
+        const { title, youTubeUrl, description, category } = updateTodo;
 
-        return axios.put('/api/todos/' + id, { title, youTubeUrl, description }, {
+        return axios.put('/api/todos/' + id, { title, youTubeUrl, description, category }, {
             headers: {
                 'x-auth-token': token
             }

@@ -76,6 +76,13 @@ module.exports = {
             return res.status(400).json({ msg: 'No todo found with this ID associated with this User.' })
         }
 
+        const { category } = req.body;
+
+
+        if (category === 'category') {
+            return res.status(400).json({ msg: 'Not all fields have been entered.' })
+        }
+
         db.Todo
             .findOneAndUpdate({ userId: req.user, _id: req.params.id }, req.body, { useFindAndModify: false })
             .then(dbModel => res.json(dbModel))

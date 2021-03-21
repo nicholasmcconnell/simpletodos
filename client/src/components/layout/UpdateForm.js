@@ -55,7 +55,7 @@ export default function Form({ todoList, setTodoSuccess, todoSuccess }) {
                 <form className='form' onSubmit={submit}>
                     <label className="category" htmlFor="category">Category</label>
                     <select name="category" defaultValue={category} onChange={e => setCategoryUpdate(e.target.value)}>
-                        <option >Select Category</option>
+                        <option value='category'>Select Category</option>
                         <option value="Purchase">Purchase</option>
                         <option value="Repair">Repair</option>
                         <option value="Order">Order</option>
