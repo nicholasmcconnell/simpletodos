@@ -35,4 +35,6 @@ USE API TO LIST LOCAL BUSINESS THAT WILL HELP WITH API
     - map hyper link will open new tab for directions to the place using google maps
 
     1. get locations
+    2. edit form - todos should reload after edit? smal but maybe a bproblem
+    
     

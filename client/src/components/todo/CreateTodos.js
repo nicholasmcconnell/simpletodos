@@ -64,7 +64,7 @@ export default function CreateTodos() {
 
                 <form className='form' onSubmit={submit}>
                     <label htmlFor='categoryDropdown' >Category</label>
-                    <select id='categoryDropdown' value='category' onChange={e => setCategory(e.target.value)}>
+                    <select id='categoryDropdown' onChange={e => setCategory(e.target.value)}>
                         <option value='category'>Select Category</option>
                         <option value="Purchase">Purchase</option>
                         <option value="Repair">Repair</option>
@@ -72,6 +72,7 @@ export default function CreateTodos() {
                         <option value="Clean">Clean</option>
                         <option value="Make">Make</option>
                         <option value="Exercise">Exercise</option>
+                        <option value="Work">Work</option>
                     </select>
                     <label htmlFor='todo-title'>Title</label>
                     <input
