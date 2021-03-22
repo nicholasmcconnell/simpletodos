@@ -60,6 +60,9 @@ export default function Form({ todoList, setTodoSuccess, todoSuccess }) {
                         <option value="Repair">Repair</option>
                         <option value="Order">Order</option>
                         <option value="Clean">Clean</option>
+                        <option value="Make">Make</option>
+                        <option value="Exercise">Exercise</option>
+                        <option value="Work">Work</option>
                     </select>
                     <label htmlFor='todo-title'>Title</label>
                     <input
