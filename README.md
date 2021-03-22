@@ -8,7 +8,7 @@ When users create a todo, they enter a title, description, and YouTube URL. Each
 
 A successful key word or phrase search renders todos to the search page to be viewed, edited, and deleted.
 
-Future development will display stores and services helpful to completing user todo's via Google Maps Platform.
+Future development will display stores and services helpful to completing user todo's via HERE Geocoding & Search API.
 
 To demo this application: 
 
