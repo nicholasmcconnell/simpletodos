@@ -31,4 +31,8 @@ SEARCH TODOS
 USE API TO LIST LOCAL BUSINESS THAT WILL HELP WITH API  
     - RETURN LIST OF THREE PLACES IN MILE RADIUS THAT RELATE TO TODOS
     - TEST SEARCH POSSIBILITIES - CATEGORY + SEARCH STRING
+
+    - map hyper link will open new tab for directions to the place using google maps
+
+    1. get locations
     
