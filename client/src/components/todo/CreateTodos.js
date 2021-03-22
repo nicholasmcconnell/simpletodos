@@ -70,6 +70,8 @@ export default function CreateTodos() {
                         <option value="Repair">Repair</option>
                         <option value="Order">Order</option>
                         <option value="Clean">Clean</option>
+                        <option value="Make">Make</option>
+                        <option value="Exercise">Exercise</option>
                     </select>
                     <label htmlFor='todo-title'>Title</label>
                     <input
