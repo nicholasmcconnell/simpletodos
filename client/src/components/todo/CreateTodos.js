@@ -63,8 +63,8 @@ export default function CreateTodos() {
                 )}
 
                 <form className='form' onSubmit={submit}>
-                    <label className="category" htmlFor="category">Category</label>
-                    <select name="category" onChange={e => setCategory(e.target.value)}>
+                    <label className="categoryLabel">Category</label>
+                    <select className="categorySelect" onChange={e => setCategory(e.target.value)}>
                         <option value='category'>Select Category</option>
                         <option value="Purchase">Purchase</option>
                         <option value="Repair">Repair</option>
