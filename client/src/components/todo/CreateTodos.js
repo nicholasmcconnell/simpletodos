@@ -61,16 +61,16 @@ export default function CreateTodos() {
                     }
                     } />
                 )}
-                <label htmlFor='categoryDropdown' >Category</label>
-                <select id='categoryDropdown' value='category' onChange={e => setCategory(e.target.value)}>
-                    <option value='category'>Select Category</option>
-                    <option value="Purchase">Purchase</option>
-                    <option value="Repair">Repair</option>
-                    <option value="Order">Order</option>
-                    <option value="Clean">Clean</option>
-                </select>
-                <form className='form' onSubmit={submit}>
 
+                <form className='form' onSubmit={submit}>
+                    <label htmlFor='categoryDropdown' >Category</label>
+                    <select id='categoryDropdown' value='category' onChange={e => setCategory(e.target.value)}>
+                        <option value='category'>Select Category</option>
+                        <option value="Purchase">Purchase</option>
+                        <option value="Repair">Repair</option>
+                        <option value="Order">Order</option>
+                        <option value="Clean">Clean</option>
+                    </select>
                     <label htmlFor='todo-title'>Title</label>
                     <input
                         id='todo-title'
