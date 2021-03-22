@@ -108,15 +108,14 @@ module.exports = {
         // db.supplies.runCommand("text", {search: "printer ink".split(" ").map(str => "\""+str+"\"").join(' ')})
 
     },
-    searchYoutube: async (req, res) => {
-        try {
-            res = await axios.get('https://www.googleapis.com/youtube/v3/theburgershow');
-            return res;
-        } catch (err) {
-            console.log()
-            console.log("yuuuup - its an error", err)
+    // searchYoutube: async (req, res) => {
+    //     try {
+    //         res = await axios.get('https://www.googleapis.com/youtube/v3/theburgershow');
+    //         return res;
+    //     } catch (err) {
+    //         console.log("yuuuup - its an error", err)
 
-        }
-    }
+    //     }
+    // }
 
 }
