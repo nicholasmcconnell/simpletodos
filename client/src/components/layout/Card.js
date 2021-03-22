@@ -55,11 +55,7 @@ export default function Card({ deleteTodos, getTodos, todoList, todoList: { titl
                         todoList={todoList}
                         getTodos={getTodos}
                     >
-                        {/* <UpdateForm
-                            todoList={todoList}
-                            todoSuccess={todoSuccess}
-                            setTodoSuccess={setTodoSuccess}
-                        /> */}
+
                     </Modal>
 
                     <button className='todo-card-button' onClick={showModal}>Edit</button>
