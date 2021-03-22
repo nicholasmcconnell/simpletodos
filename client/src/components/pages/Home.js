@@ -8,14 +8,14 @@ function Home() {
     const { userData } = useContext(UserContext);
     const history = useHistory();
 
-    // const getSearch = async () => {
-    //     let hereSearch = await hereAPI.hereSearch()
-    //     console.log(hereSearch)
-    // }
+    const getSearch = async () => {
+        let hereSearch = await hereAPI.hereSearch()
+        console.log(hereSearch)
+    }
 
-    // useEffect(() => {
-    //     getSearch();
-    // })
+    useEffect(() => {
+        getSearch();
+    })
 
     useEffect(() => {
 
