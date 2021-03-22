@@ -1,4 +1,5 @@
 import axios from 'axios';
+import CONFIG from '../config.json';
 
 export default {
     searchYoutube: async (req, res) => {
@@ -13,9 +14,11 @@ export default {
 
     hereSearch: async (req, res) => {
         try {
-            res = await axios.get(`https://discover.search.hereapi.com/v1/discover?at=52.5228,13.4124&q=petrol+station&apiKey=${process.env.HERE_API_KEY}`)
+            res = await axios.get(`https://discover.search.hereapi.com/v1/discover?at=52.5228,13.4124&q=food&apiKey=${CONFIG.HERE_API_KEY}`)
+            return res.data;
 
         } catch (error) {
+            console.log(error)
 
         }
     }
