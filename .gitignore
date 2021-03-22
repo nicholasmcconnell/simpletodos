@@ -9,3 +9,5 @@ package-lock.json
 .client/build
 /client/package-lock.json
 bugs.txt
+./client/config.json
+
