@@ -38,7 +38,6 @@ export default function Login() {
         } catch (err) {
             (err.response.data.msg && setError(err.response.data.msg))
         }
-
     }
 
     return (

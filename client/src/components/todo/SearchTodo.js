@@ -17,7 +17,6 @@ export default function SearchTodos() {
 
     localStorage.setItem('lastVisited', 'searchtodos')
 
-
     useEffect(() => {
         if (!userData.user) {
             history.push('/login')
