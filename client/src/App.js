@@ -50,23 +50,21 @@ function App() {
     checkLoggedIn();
   }, [])
 
+  // useEffect for welcome modal
+
   return (
     <>
       <BrowserRouter>
         <UserContext.Provider value={{ userData, setUserData }}>
-          {/* <SuccessContext.Provider value={{ todoSuccess, setTodoSuccess }}> */}
-            <Header />
-            {/* <div className='page'> */}
-            <Switch>
-              <Route exact path='/' component={Home} />
-              <Route path='/login' component={Login} />
-              <Route path='/register' component={Register} />
-              <Route path='/createtodos' component={CreateTodos} />
-              <Route path='/gettodos' component={GetTodos} />
-              <Route path='/searchtodos' component={SearchTodos} />
-            </Switch>
-            {/* </div> */}
-          {/* </SuccessContext.Provider> */}
+          <Header />
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route path='/login' component={Login} />
+            <Route path='/register' component={Register} />
+            <Route path='/createtodos' component={CreateTodos} />
+            <Route path='/gettodos' component={GetTodos} />
+            <Route path='/searchtodos' component={SearchTodos} />
+          </Switch>
         </UserContext.Provider>
       </BrowserRouter>
     </>

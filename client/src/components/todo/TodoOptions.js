@@ -2,6 +2,8 @@ import React, { useEffect, useContext, useState } from 'react';
 import UserContext from '../../context/UserContext';
 import { useHistory, Link } from 'react-router-dom';
 
+import OptionButton from './OptionButton';
+
 export default function TodoOptions() {
     const [error, setError] = useState();
     const [todoSearch, setTodoSearch] = useState();
@@ -19,16 +21,15 @@ export default function TodoOptions() {
         <>
             <div className='page'>
                 <div className='container'>
-                    <h2>Todo Options</h2>
+                    <h2>Home</h2>
                     <Link to='/gettodos'>
-                        <button className='type-button' value='GetTodos'>Get Todo's</button>
+                        <OptionButton className='type-button' value='GetTodos' name='Get Todos' />
                     </Link>
                     <Link to='/searchtodos'>
-                        <button className='type-button' value='SearchTodos'>Search Todo's</button>
+                        <OptionButton className='type-button' value='SearchTodos' name='Search' />
                     </Link>
-
                     <Link to='/createtodos'>
-                        <button className='type-button' value='CreateTodos'>Create Todo</button>
+                        <OptionButton className='type-button' value='CreateTodos' name='Create Todo' />
                     </Link>
                 </div>
             </div>

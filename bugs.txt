@@ -1,4 +1,4 @@
-1. When logging in 
+PU1. When logging in 
     - if there are todo's, go to view todo page.
     - else go to create new todo
 2. API
@@ -9,4 +9,32 @@
 
 
 3. WHAT KIND OF APP??
-    - 
+    - get rid of youtube thing
+    - drop down with options for todo type
+        - purchase, repair, order, householdchores, chores
+        - will show locations and contact info via google API where the tasks can be accomplished
+        - for chores - api of music to clean to 
+            - perhaps sync with spotify?
+
+CREATE TODOS
+    - see ^ what kind of app
+    - YOUTUBE GONE
+    - title or description become chores
+        - have spell check
+    - drop down for chore categories
+
+SEARCH TODOS
+    - SEARCH WITLL BE DROP DOWN THAT RETURNS ALL FROM CATEGORY
+    - ALSO WILL HAVE OPTION FOR ALL
+
+
+USE API TO LIST LOCAL BUSINESS THAT WILL HELP WITH API  
+    - RETURN LIST OF THREE PLACES IN MILE RADIUS THAT RELATE TO TODOS
+    - TEST SEARCH POSSIBILITIES - CATEGORY + SEARCH STRING
+
+    - map hyper link will open new tab for directions to the place using google maps
+
+    1. get locations
+    2. edit form - todos should reload after edit? smal but maybe a bproblem
+    
+    

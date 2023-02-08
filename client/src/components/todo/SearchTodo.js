@@ -4,6 +4,7 @@ import { useHistory, Link } from 'react-router-dom';
 import ErrorNotice from '../misc/ErrorNotice';
 import API from '../../utils/todoAPI';
 import Card from '../layout/Card';
+import OptionButton from './OptionButton';
 
 export default function SearchTodos() {
     const [error, setError] = useState(undefined);
@@ -127,7 +128,7 @@ export default function SearchTodos() {
                     }
                 </div>
                 <Link to='/'>
-                    <button className='type-button' value='Home'>Home</button>
+                    <OptionButton className='type-button' value='Home' name='Home' />
                 </Link>
             </div>
         </div>

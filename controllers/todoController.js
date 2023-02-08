@@ -6,11 +6,11 @@ const { Todo } = require('../models');
 module.exports = {
     createTodos: async (req, res) => {
         try {
-            const { title, youTubeUrl, description } = req.body;
+            const { title, youTubeUrl, description, category } = req.body;
 
             // validation
 
-            if (!title || !description || !youTubeUrl) {
+            if (!title || !description || !youTubeUrl || !category) {
                 return res.status(400).json({ msg: 'Not all fields have been entered.' })
             }
 
@@ -18,6 +18,7 @@ module.exports = {
                 title,
                 youTubeUrl,
                 description,
+                category,
                 userId: req.user
             });
 
@@ -75,6 +76,13 @@ module.exports = {
             return res.status(400).json({ msg: 'No todo found with this ID associated with this User.' })
         }
 
+        const { category } = req.body;
+
+
+        if (category === 'category') {
+            return res.status(400).json({ msg: 'Not all fields have been entered.' })
+        }
+
         db.Todo
             .findOneAndUpdate({ userId: req.user, _id: req.params.id }, req.body, { useFindAndModify: false })
             .then(dbModel => res.json(dbModel))
@@ -100,15 +108,14 @@ module.exports = {
         // db.supplies.runCommand("text", {search: "printer ink".split(" ").map(str => "\""+str+"\"").join(' ')})
 
     },
-    searchYoutube: async (req, res) => {
-        try {
-            res = await axios.get('https://www.googleapis.com/youtube/v3/theburgershow');
-            return res;
-        } catch (err) {
-            console.log()
-            console.log("yuuuup - its an error", err)
+    // searchYoutube: async (req, res) => {
+    //     try {
+    //         res = await axios.get('https://www.googleapis.com/youtube/v3/theburgershow');
+    //         return res;
+    //     } catch (err) {
+    //         console.log("yuuuup - its an error", err)
 
-        }
-    }
+    //     }
+    // }
 
 }

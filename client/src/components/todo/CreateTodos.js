@@ -2,11 +2,10 @@ import React, { useState, useContext, useEffect } from 'react'
 import { useHistory, Link } from 'react-router-dom';
 import UserContext from '../../context/UserContext';
 import API from '../../utils/todoAPI';
+import Dropdown from '../layout/Dropdown';
 import ErrorNotice from '../misc/ErrorNotice';
 import SuccessNotice from '../misc/SuccessNotice';
-// import SuccessContext from '../../context/SuccessContext';
-import Form from '../layout/UpdateForm';
-import Card from '../../components/layout/Card';
+import OptionButton from './OptionButton';
 
 export default function CreateTodos() {
 
@@ -14,6 +13,7 @@ export default function CreateTodos() {
     const [youTubeUrl, setYouTubeUrl] = useState();
     const [description, setDescription] = useState();
     const [error, setError] = useState();
+    const [category, setCategory] = useState();
     const [todoSuccess, setTodoSuccess] = useState();
 
     const { userData } = useContext(UserContext);
@@ -27,28 +27,16 @@ export default function CreateTodos() {
         }
     }, []);
 
-    const setIntialStates = () => {
-        // Send initial state as prop to error and success
-        setTodoSuccess(undefined);
-        setError(undefined)
-        setTitle('');
-        setYouTubeUrl('');
-        setDescription('');
-
-        console.log(todoSuccess, error, title, youTubeUrl, description)
-    }
-
     const submit = async (e) => {
         e.preventDefault();
         try {
-            const newTodo = { title, youTubeUrl, description }
+            const newTodo = { title, youTubeUrl, description, category }
 
             await API.createTodos(newTodo, userData.token)
                 .then(res => {
                     setTodoSuccess(`Success, ${userData.user.displayName}!  Your Todo has been saved.`)
                     history.push('/gettodos')
                 })
-
                 .catch(err =>
                     (err.response.data.msg && setError(err.response.data.msg))
                 )
@@ -56,7 +44,6 @@ export default function CreateTodos() {
         } catch (err) {
             console.log("Something when wrong")
         }
-        // setIntialStates();
     }
 
     return (
@@ -75,15 +62,18 @@ export default function CreateTodos() {
                     } />
                 )}
 
-                {/* <Form
-                    onSubmit={submit.bind()}
-                    // setTitle={() => setTitle}
-                    // setYouTubeUrl={setYouTubeUrl}
-                    // setDescription={setDescription}
-
-                /> */}
-
                 <form className='form' onSubmit={submit}>
+                    <label htmlFor='categoryDropdown' >Category</label>
+                    <select id='categoryDropdown' onChange={e => setCategory(e.target.value)}>
+                        <option value='category'>Select Category</option>
+                        <option value="Purchase">Purchase</option>
+                        <option value="Repair">Repair</option>
+                        <option value="Order">Order</option>
+                        <option value="Clean">Clean</option>
+                        <option value="Make">Make</option>
+                        <option value="Exercise">Exercise</option>
+                        <option value="Work">Work</option>
+                    </select>
                     <label htmlFor='todo-title'>Title</label>
                     <input
                         id='todo-title'
@@ -91,7 +81,7 @@ export default function CreateTodos() {
                         onChange={e => setTitle(e.target.value)}
                     />
 
-                    <label htmlFor='todo-youtubeurl'>YouTube URL</label>
+                    <label htmlFor='todo-youtubeurl'>YouTube URL (e.g. https://www.youtube.com/watch?v=PkZNo7MFNFg)</label>
                     <input
                         id='todo-youtubeurl'
                         type='url'
@@ -106,10 +96,10 @@ export default function CreateTodos() {
                     />
                     <div className='buttons-div'>
                         <input type='submit' value='Submit' />
-                        <input type='reset' value='Clear' onClick={() => { setIntialStates(); window.location.reload(false); }} />
+                        <input type='reset' value='Clear' />
                     </div>
                 </form>
-                <button className='type-button' onClick={() => { history.push('/'); setTodoSuccess(undefined); }} value='Home'>Home</button>
+                <OptionButton className='type-button' value='Home' name='Home' onClick={() => { history.push('/'); setTodoSuccess(undefined); }}></OptionButton>
 
             </div>
         </div>
