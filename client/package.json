@@ -1,6 +1,9 @@
 {
   "name": "todo-front",
   "version": "0.1.0",
+  "engines": {
+    "node": "14.15.4"
+  },
   "private": true,
   "proxy": "http://localhost:5000/",
   "secure": false,
